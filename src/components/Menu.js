@@ -9,7 +9,12 @@ class Menu extends React.Component {
         return(
             <Switch>
 
-            <Route path="/all" render={() => <UsersContainer  /> }/>
+            <Route path="/all" render={() => <UsersContainer /> }/>
+            <Route path="/guitar" render={() => <UsersContainer instrument="Guitar" /> }/>
+            <Route path="/drums" render={() => <UsersContainer instrument="Drums" /> }/>
+            <Route path="/vocals" render={() => <UsersContainer instrument="Vocals" /> }/>
+            <Route path="/other" />
+            <Route path="/create"  />
 
              </Switch>
         )
