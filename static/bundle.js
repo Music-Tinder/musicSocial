@@ -26590,20 +26590,20 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.fetchUsers = fetchUsers;
-exports.storeQuestion = storeQuestion;
+exports.storeUsers = storeUsers;
 function fetchUsers() {
 
   return function (dispatch) {
-    return fetch("/api/users").then(function (response) {
+    return fetch("/api/users/").then(function (response) {
       return response.json();
     }).then(function (json) {
 
-      dispatch(storeQuestion(json));
+      dispatch(storeUsers(json));
     });
   };
 }
 
-function storeQuestion(data) {
+function storeUsers(data) {
 
   return {
     type: "LOAD_USERS",
@@ -26825,7 +26825,18 @@ var Menu = function (_React$Component) {
                 null,
                 _react2.default.createElement(_reactRouterDom.Route, { path: "/all", render: function render() {
                         return _react2.default.createElement(_UsersContainer2.default, null);
-                    } })
+                    } }),
+                _react2.default.createElement(_reactRouterDom.Route, { path: "/guitar", render: function render() {
+                        return _react2.default.createElement(_UsersContainer2.default, { instrument: "Guitar" });
+                    } }),
+                _react2.default.createElement(_reactRouterDom.Route, { path: "/drums", render: function render() {
+                        return _react2.default.createElement(_UsersContainer2.default, { instrument: "Drums" });
+                    } }),
+                _react2.default.createElement(_reactRouterDom.Route, { path: "/vocals", render: function render() {
+                        return _react2.default.createElement(_UsersContainer2.default, { instrument: "Vocals" });
+                    } }),
+                _react2.default.createElement(_reactRouterDom.Route, { path: "/other" }),
+                _react2.default.createElement(_reactRouterDom.Route, { path: "/create" })
             );
         }
     }]);
@@ -26871,30 +26882,63 @@ var Users = function (_React$Component) {
   function Users() {
     _classCallCheck(this, Users);
 
-    var _this = _possibleConstructorReturn(this, (Users.__proto__ || Object.getPrototypeOf(Users)).call(this));
-
-    _this.show = _this.show.bind(_this);
-    return _this;
+    return _possibleConstructorReturn(this, (Users.__proto__ || Object.getPrototypeOf(Users)).apply(this, arguments));
   }
 
   _createClass(Users, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.getMusicians();
-      console.log(this.props.musicians);
-    }
-  }, {
-    key: "show",
-    value: function show() {
-      console.log(this.props.musicians);
-    }
-  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
+      var filteredArray = [];
+      if (this.props.instrument) {
+        filteredArray = this.props.musicians.filter(function (user) {
+          return user.instruments.indexOf(_this2.props.instrument) > -1;
+        });
+      } else filteredArray = this.props.musicians;
+
       return _react2.default.createElement(
         "div",
-        { onClick: this.show },
-        "Users"
+        null,
+        filteredArray.map(function (user) {
+          return _react2.default.createElement(
+            "div",
+            { key: user.id },
+            _react2.default.createElement(
+              "p",
+              null,
+              " Name: ",
+              user.name,
+              " "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              " Surname: ",
+              user.surname,
+              " "
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              " instruments: "
+            ),
+            user.instruments.map(function (instrument, index) {
+              return _react2.default.createElement(
+                "div",
+                { key: instrument },
+                _react2.default.createElement(
+                  "p",
+                  null,
+                  index + 1,
+                  "-: ",
+                  instrument,
+                  "  "
+                )
+              );
+            })
+          );
+        })
       );
     }
   }]);
@@ -26930,14 +26974,17 @@ var _actions = __webpack_require__(/*! ../actions */ "./src/actions/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownProps) {
 
     return {
-        musicians: state.users
+        musicians: state.users,
+        instrument: ownProps.instrument
     };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    dispatch((0, _actions.fetchUsers)());
+
     return {
         getMusicians: function getMusicians() {
             return dispatch((0, _actions.fetchUsers)());
@@ -27044,13 +27091,14 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 function users() {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
     var action = arguments[1];
 
 
     switch (action.type) {
         case "LOAD_USERS":
-            var newState = Object.assign({}, state, { users: action.users });
+            // const newState=Object.assign({},state, {users:action.users})
+            var newState = JSON.parse(JSON.stringify(action.users));
             return newState;
 
         default:

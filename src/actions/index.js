@@ -1,14 +1,13 @@
 export function fetchUsers(){
 
-
   return function(dispatch){
     return fetch(
-      `/api/users`
+      `/api/users/`
     )
       .then(response => response.json())
       .then(json => {
 
-       dispatch(storeQuestion(json));
+       dispatch(storeUsers(json));
       });
 
 
@@ -16,7 +15,7 @@ export function fetchUsers(){
 }
 
 
-export function storeQuestion(data){
+export function storeUsers(data){
 
   return{
     type: "LOAD_USERS",
