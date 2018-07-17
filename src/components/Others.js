@@ -1,5 +1,7 @@
 import React from "react";
 
+import UsersContainer from '../containers/UsersContainer'
+
 class Others extends React.Component {
 
     constructor(){
@@ -11,16 +13,12 @@ class Others extends React.Component {
     }
 
     choiceHandler(event){
-        console.log(event.target.textContent);
         this.setState({choice:event.target.textContent})
     }
 
     render(){
 
-     let   filteredArray = this.props.musicians.filter(user=>{
-            return (user.instruments.indexOf(this.state.choice) >-1)
-          });
-        
+     
         return(
             <div>
                 {this.state.instruments.map(instrument =>{
@@ -30,28 +28,8 @@ class Others extends React.Component {
                 })}
 
 
-                    <div>
-    
-    {filteredArray.map(user=>{
-      return(
-        <div key={user.id}>
-       <p> Name: {user.name} </p>
-       <p> Surname: {user.surname} </p>
-       <p> instruments: </p>
-       {user.instruments.map((instrument,index)=>{
-         return(
-           <div key={instrument}>
-          <p>{index+1}-: {instrument}  </p>
-           </div>
-         )
-       })}
-        
-        </div>
-      )
-    })}
-    
-    </div>
                 
+                <UsersContainer instrument={this.state.choice} />
 
                 
                 </div>
