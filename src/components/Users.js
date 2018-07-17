@@ -1,7 +1,10 @@
 import React from "react";
+import User from '../components/User';
 
 class Users extends React.Component {
   render() {
+    
+
     let filteredArray = [];
     if (this.props.instrument) {
       filteredArray = this.props.musicians.filter(user => {
@@ -9,83 +12,12 @@ class Users extends React.Component {
       });
     } else filteredArray = this.props.musicians;
 
+
     return (
       <div className="users">
         {filteredArray.map(user => {
           return (
-            <div className="user" key={user.id}>
-              <div className="user__title">
-                <h2 className="username">
-                  {user.name} {user.surname}
-                </h2>
-                <p className="add-to-favourites">➕</p>
-              </div>
-
-              <img className="user__image" src={user.image} />
-
-              <div className="user__info">
-                <div className="user__info__1">
-                  <h3> Instruments: </h3>
-                  {user.instruments.map((instrument, index) => {
-                    return (
-                      <div key={instrument}>
-                        <p>
-                          {index + 1}-: {instrument}{" "}
-                        </p>
-                      </div>
-                    );
-                  })}
-                  <h3>Location:</h3> <p>{user.location}</p>
-                </div>
-                <div className="user__info__2">
-                  <h3>Genres:</h3> <p>{user.genres}</p>
-                  <h3>Availability:</h3> <p>{user.availability}</p>
-                </div>
-              </div>
-
-              <div className="user__soundcloud">
-                <iframe
-                  className="soundcloud"
-                  scrolling="no"
-                  frameBorder="no"
-                  allow="autoplay"
-                  src={`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${
-                    user.social.soundcloud
-                  }&color=%68b95c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
-                />
-              </div>
-              <div className="user__socials">
-                <a
-                  href={`https://www.instagram.com/${user.social.instagram}`}
-                  target="_blank"
-                >
-                  <img className="icon" src="../static/assets/insta.png" />
-                </a>
-
-                <a
-                  href={`https://twitter.com/${user.social.twitter}`}
-                  target="_blank"
-                >
-                  <img className="icon" src="../static/assets/twitter.png" />
-                </a>
-                <a
-                  href={`https://soundcloud.com/${
-                    user.social.soundcloudProfile
-                  }`}
-                  target="_blank"
-                >
-                  <img className="icon" src="../static/assets/soundcloud.png" />
-                </a>
-                <a
-                  href={`https://www.youtube.com/channel/${
-                    user.social.youtube
-                  }`}
-                  target="_blank"
-                >
-                  <img className="icon" src="../static/assets/youtube.png" />
-                </a>
-              </div>
-            </div>
+            <User key={user.id} user={user} />
           );
         })}
       </div>

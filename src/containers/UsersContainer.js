@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import Users from '../components/Users';
-import {fetchUsers} from "../actions"
+import {fetchUsers,selectUser} from "../actions"
 
 
 
@@ -9,7 +9,8 @@ const mapStateToProps = (state,ownProps)  => {
   
     return{
         musicians: state.users,
-        instrument: ownProps.instrument
+        instrument: ownProps.instrument,
+        selected: state.select
     };
 }
 
@@ -17,7 +18,8 @@ const mapDispatchToProps = dispatch => {
     dispatch(fetchUsers());
 
     return{
-        getMusicians : () => dispatch(fetchUsers())
+        getMusicians : () => dispatch(fetchUsers()),
+        
             
         }
       

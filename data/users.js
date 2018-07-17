@@ -8,11 +8,12 @@ module.exports = [
     instruments: ["Bass", "Guitar"],
     genres: ["Jazz"],
     social: {
-      soundcloudProfile: "",
+      soundcloudProfile: "supremepatty",
       soundcloudTrack: "",
       soundcloud: "139581262",
       twitter: "oilyquack",
-      instagram: "oilyquack"
+      instagram: "oilyquack",
+      youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "weekends",
     favourites: [2, 3]
@@ -26,11 +27,12 @@ module.exports = [
     instruments: ["Drums", "Vocals", "Piano"],
     genres: ["Screams"],
     social: {
-      soundcloudProfile: "",
+      soundcloudProfile: "tiesto",
       soundcloudTrack: "",
-      soundcloud: " ",
+      soundcloud: "139581261",
       twitter: "rices",
-      instagram: "licence"
+      instagram: "licence",
+      youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "everyDay",
     favourites: [4, 3]
@@ -44,11 +46,12 @@ module.exports = [
     instruments: ["Drums", "Vocals"],
     genres: ["Screams"],
     social: {
-      soundcloudProfile: "",
+      soundcloudProfile: "tiesto",
       soundcloudTrack: "",
-      soundcloud: " ",
+      soundcloud: "139581250",
       twitter: "MycallThomas",
-      instagram: "MycallThomas"
+      instagram: "MycallThomas",
+      youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "Tuesday",
     favourites: [2, 4]
@@ -62,11 +65,12 @@ module.exports = [
     instruments: ["Bass", "Vocals"],
     genres: ["Screams"],
     social: {
-      soundcloudProfile: "",
+      soundcloudProfile: "tiesto",
       soundcloudTrack: "",
-      soundcloud: " ",
+      soundcloud: "139581256",
       twitter: "Rafal",
-      instagram: "Rafal"
+      instagram: "Rafal",
+      youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "Saturday",
     favourites: [2, 3]
@@ -80,11 +84,12 @@ module.exports = [
     instruments: ["Guitar", "Vocals"],
     genres: ["Screams"],
     social: {
-      soundcloudProfile: "",
+      soundcloudProfile: "cleanbandit",
       soundcloudTrack: "",
-      soundcloud: " ",
+      soundcloud: "139581256",
       twitter: "MattGarrity",
-      instagram: "MattGarrity"
+      instagram: "MattGarrity",
+      youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "everyDay",
     favourites: [2, 3]
@@ -98,11 +103,12 @@ module.exports = [
     instruments: ["Vocals", "Guitar"],
     genres: ["R n B"],
     social: {
-      soundcloudProfile: "",
+      soundcloudProfile: "cleanbandit",
       soundcloudTrack: "",
-      soundcloud: " ",
+      soundcloud: "139581258",
       twitter: "WhitneyHouston",
-      instagram: "WhitneyHouston"
+      instagram: "WhitneyHouston",
+      youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "weekends",
     favourites: [2, 3]
@@ -116,11 +122,12 @@ module.exports = [
     instruments: ["Vocals", "Guitar"],
     genres: ["Jazz"],
     social: {
-      soundcloudProfile: "",
+      soundcloudProfile: "cleanbandit",
       soundcloudTrack: "",
-      soundcloud: " ",
+      soundcloud: "139581256",
       twitter: "JamesBLunt",
-      instagram: "JamesBLunt"
+      instagram: "JamesBLunt",
+      youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "weekends",
     favourites: [2, 3]
@@ -134,11 +141,12 @@ module.exports = [
     instruments: ["Guitar"],
     genres: ["Jazz"],
     social: {
-      soundcloudProfile: "",
+      soundcloudProfile: "yearsandyears",
       soundcloudTrack: "",
-      soundcloud: " ",
+      soundcloud: "139581256",
       twitter: "JoeSpunge",
-      instagram: "JoeSpunge"
+      instagram: "JoeSpunge",
+      youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "weekends",
     favourites: [2, 3]
@@ -152,11 +160,12 @@ module.exports = [
     instruments: ["Vocals"],
     genres: ["Jazz"],
     social: {
-      soundcloudProfile: "",
+      soundcloudProfile: "yearsandyears",
       soundcloudTrack: "",
-      soundcloud: " ",
+      soundcloud: "139581256",
       twitter: "HarryStyles",
-      instagram: "HarryStyles"
+      instagram: "HarryStyles",
+      youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "everyday",
     favourites: [2, 3]
@@ -170,11 +179,12 @@ module.exports = [
     instruments: ["Vocals", "Guitar"],
     genres: ["Love Songs"],
     social: {
-      soundcloudProfile: "",
+      soundcloudProfile: "yearsandyears",
       soundcloudTrack: "",
-      soundcloud: " ",
+      soundcloud: "139581250",
       twitter: "MarcAnthony",
-      instagram: "MarcAnthony"
+      instagram: "MarcAnthony",
+      youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "weekends",
     favourites: [2, 3]
