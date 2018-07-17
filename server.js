@@ -54,7 +54,7 @@ let locations = {
     surname: "ices",
     image: "https://...",
     location: [1, 2],
-    instruments: ["Drums", "Vocals"],
+    instruments: ["Drums", "Vocals","Piano"],
     genre: ["Screams"],
     social: {
       soundcloud: "https://...",
