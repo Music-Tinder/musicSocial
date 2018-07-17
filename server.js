@@ -1,8 +1,12 @@
 const express = require("express");
+const hbs = require("hbs");
+
+hbs.registerPartials(__dirname + "/views/partials");
 
 const data = {
   locations: require("./data/locations"),
-  users: require("./data/users")
+  users: require("./data/users"),
+  instruments: require("./data/instruments")
 };
 
 const app = express();
@@ -32,7 +36,7 @@ app.get("/api/locations", function(req, res) {
 });
 
 app.get("*", function(req, res) {
-  res.render("index");
+  res.render("index", { instruments: data.instruments });
 });
 
 const port = process.env.PORT || 8080;
