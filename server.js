@@ -4,11 +4,10 @@ const app = express();
 app.use("/static", express.static("static"));
 app.set("view engine", "hbs");
 
-const data={
-  locations:require("./data/locations"),
-  users:require("./data/users")
+const data = {
+  locations: require("./data/locations"),
+  users: require("./data/users")
 };
-
 
 app.get("/api/users", function(req, res) {
   res.json(data.users);
