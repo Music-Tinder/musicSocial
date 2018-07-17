@@ -42,6 +42,8 @@ let users = [
     instruments: ["Bass", "Guitar"],
     genres: ["Jazz"],
     social: {
+      soundcloudProfile: "",
+      soundcloudTrack: "",
       soundcloud: "https://...",
       twitter: "oilyquack",
       instagram: "oilyquack"
@@ -54,9 +56,11 @@ let users = [
     surname: "ices",
     image: "https://...",
     location: [1, 2],
-    instruments: ["Drums", "Vocals","Piano"],
+    instruments: ["Drums", "Vocals", "Piano"],
     genre: ["Screams"],
     social: {
+      soundcloudProfile: "",
+      soundcloudTrack: "",
       soundcloud: "https://...",
       twitter: "rices",
       instagram: "licence",
@@ -72,6 +76,8 @@ let users = [
     instruments: ["Drums", "Vocals"],
     genre: ["Screams"],
     social: {
+      soundcloudProfile: "",
+      soundcloudTrack: "",
       soundcloud: "https://...",
       twitter: "MycallThomas",
       instagram: "MycallThomas"
@@ -87,6 +93,8 @@ let users = [
     instruments: ["Bass", "Vocals"],
     genre: ["Screams"],
     social: {
+      soundcloudProfile: "",
+      soundcloudTrack: "",
       soundcloud: "https://...",
       twitter: "Rafal",
       instagram: "Rafal"
@@ -102,6 +110,8 @@ let users = [
     instruments: ["Guitar", "Vocals"],
     genre: ["Screams"],
     social: {
+      soundcloudProfile: "",
+      soundcloudTrack: "",
       soundcloud: "https://...",
       twitter: "MattGarrity",
       instagram: "MattGarrity"
@@ -117,6 +127,8 @@ let users = [
     instruments: ["Vocals", "Guitar"],
     genres: ["R n B"],
     social: {
+      soundcloudProfile: "",
+      soundcloudTrack: "",
       soundcloud: "https://...",
       twitter: "WhitneyHouston",
       instagram: "WhitneyHouston"
@@ -132,6 +144,8 @@ let users = [
     instruments: ["Vocals", "Guitar"],
     genres: ["Jazz"],
     social: {
+      soundcloudProfile: "",
+      soundcloudTrack: "",
       soundcloud: "https://...",
       twitter: "JamesBLunt",
       instagram: "JamesBLunt"
@@ -147,6 +161,8 @@ let users = [
     instruments: ["Guitar"],
     genres: ["Jazz"],
     social: {
+      soundcloudProfile: "",
+      soundcloudTrack: "",
       soundcloud: "https://...",
       twitter: "JoeSpunge",
       instagram: "JoeSpunge"
@@ -162,6 +178,8 @@ let users = [
     instruments: ["Vocals"],
     genres: ["Jazz"],
     social: {
+      soundcloudProfile: "",
+      soundcloudTrack: "",
       soundcloud: "https://...",
       twitter: "HarryStyles",
       instagram: "HarryStyles"
@@ -177,6 +195,8 @@ let users = [
     instruments: ["Vocals", "Guitar"],
     genres: ["Love Songs"],
     social: {
+      soundcloudProfile: "",
+      soundcloudTrack: "",
       soundcloud: "https://...",
       twitter: "MarcAnthony",
       instagram: "MarcAnthony"
