@@ -26,6 +26,9 @@ function Header(){
             <li >
               <Link to="/create">CREATE POST</Link>
             </li>
+            <li >
+              <Link to="/profile">Profile</Link>
+            </li>
           </ul>
         
       </header>
