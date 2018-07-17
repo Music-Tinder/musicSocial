@@ -3,9 +3,31 @@
 }
 
 body {
+  background: grey;
   font-family: "Titillium Web", sans-serif;
 }
 
-.green{
-  color:green;
+.green {
+  color: green;
+}
+
+.users {
+}
+
+.user {
+  border: solid black;
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.user__info {
+}
+
+.user__socials {
+}
+.icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
 }

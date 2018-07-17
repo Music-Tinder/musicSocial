@@ -60,7 +60,6 @@ let users = [
       soundcloud: "https://...",
       twitter: "rices",
       instagram: "licence",
-
       availability: "everyDay"
     }
   },
