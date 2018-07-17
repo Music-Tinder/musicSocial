@@ -16,9 +16,9 @@ app.get("/api/users", function(req, res) {
 
 app.get("/api/users/:instrument", function(req, res) {
   if (req.params.instrument === "all") {
-    res.json(users);
+    res.json(data.users);
   } else {
-    let filteredArray = users.filter(user => {
+    let filteredArray = data.users.filter(user => {
       return user.instruments.indexOf(req.params.instrument) > -1;
     });
 
