@@ -45,7 +45,7 @@ let users = [
     surname: "ices",
     image: "https://...",
     location: "london",
-    instruments: ["Bass","Vocals"],
+    instruments: ["Bass","Vocals","Piano"],
     genre: ["Screams"],
     social:{
     soundcloud: "https://...",
