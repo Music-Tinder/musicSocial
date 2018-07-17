@@ -26800,6 +26800,10 @@ var _UsersContainer = __webpack_require__(/*! ../containers/UsersContainer */ ".
 
 var _UsersContainer2 = _interopRequireDefault(_UsersContainer);
 
+var _OthersContainer = __webpack_require__(/*! ../containers/OthersContainer */ "./src/containers/OthersContainer.js");
+
+var _OthersContainer2 = _interopRequireDefault(_OthersContainer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26835,7 +26839,7 @@ var Menu = function (_React$Component) {
                 _react2.default.createElement(_reactRouterDom.Route, { path: "/vocals", render: function render() {
                         return _react2.default.createElement(_UsersContainer2.default, { instrument: "Vocals" });
                     } }),
-                _react2.default.createElement(_reactRouterDom.Route, { path: "/other" }),
+                _react2.default.createElement(_reactRouterDom.Route, { path: "/other", component: _OthersContainer2.default }),
                 _react2.default.createElement(_reactRouterDom.Route, { path: "/create" })
             );
         }
@@ -26845,6 +26849,128 @@ var Menu = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Menu;
+
+/***/ }),
+
+/***/ "./src/components/Others.js":
+/*!**********************************!*\
+  !*** ./src/components/Others.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Others = function (_React$Component) {
+    _inherits(Others, _React$Component);
+
+    function Others() {
+        _classCallCheck(this, Others);
+
+        var _this = _possibleConstructorReturn(this, (Others.__proto__ || Object.getPrototypeOf(Others)).call(this));
+
+        _this.state = { choice: "",
+            instruments: ["Brass", "Piano", "Woodwind", "Percussion", "Electronic", "Synthesizer", "Violin"] };
+        _this.choiceHandler = _this.choiceHandler.bind(_this);
+
+        return _this;
+    }
+
+    _createClass(Others, [{
+        key: "choiceHandler",
+        value: function choiceHandler(event) {
+            console.log(event.target.textContent);
+            this.setState({ choice: event.target.textContent });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            var _this2 = this;
+
+            var filteredArray = this.props.musicians.filter(function (user) {
+                return user.instruments.indexOf(_this2.state.choice) > -1;
+            });
+
+            return _react2.default.createElement(
+                "div",
+                null,
+                this.state.instruments.map(function (instrument) {
+                    return _react2.default.createElement(
+                        "button",
+                        { onClick: _this2.choiceHandler, key: instrument },
+                        instrument
+                    );
+                }),
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    filteredArray.map(function (user) {
+                        return _react2.default.createElement(
+                            "div",
+                            { key: user.id },
+                            _react2.default.createElement(
+                                "p",
+                                null,
+                                " Name: ",
+                                user.name,
+                                " "
+                            ),
+                            _react2.default.createElement(
+                                "p",
+                                null,
+                                " Surname: ",
+                                user.surname,
+                                " "
+                            ),
+                            _react2.default.createElement(
+                                "p",
+                                null,
+                                " instruments: "
+                            ),
+                            user.instruments.map(function (instrument, index) {
+                                return _react2.default.createElement(
+                                    "div",
+                                    { key: instrument },
+                                    _react2.default.createElement(
+                                        "p",
+                                        null,
+                                        index + 1,
+                                        "-: ",
+                                        instrument,
+                                        "  "
+                                    )
+                                );
+                            })
+                        );
+                    })
+                )
+            );
+        }
+    }]);
+
+    return Others;
+}(_react2.default.Component);
+
+exports.default = Others;
 
 /***/ }),
 
@@ -26947,6 +27073,53 @@ var Users = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Users;
+
+/***/ }),
+
+/***/ "./src/containers/OthersContainer.js":
+/*!*******************************************!*\
+  !*** ./src/containers/OthersContainer.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _Others = __webpack_require__(/*! ../components/Others */ "./src/components/Others.js");
+
+var _Others2 = _interopRequireDefault(_Others);
+
+var _actions = __webpack_require__(/*! ../actions */ "./src/actions/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+
+    return {
+        musicians: state.users
+
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    dispatch((0, _actions.fetchUsers)());
+
+    return {
+        getMusicians: function getMusicians() {
+            return dispatch((0, _actions.fetchUsers)());
+        }
+
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Others2.default);
 
 /***/ }),
 
