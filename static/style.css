@@ -3,29 +3,67 @@
 }
 
 body {
-  background: grey;
-  font-family: "Titillium Web", sans-serif;
+  background: linear-gradient(#141716, #68b95c);
+  font-family: "Montserrat", sans-serif;
+  color: #dcded8;
+  height: 100vh;
 }
 
-.green {
-  color: green;
-}
-
-.users {
-}
+/* .users {
+} */
 
 .user {
-  border: solid black;
-  margin-top: 10px;
+  border: 0;
+  box-shadow: 3px 3px 10px 3px #dcded8;
+
+  margin-top: 20px;
   padding: 10px;
   text-align: center;
+  background: #262e26;
+}
+
+.user__title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.username {
+  margin: 0;
+}
+
+.add-to-favourites {
+  font-size: 40px;
+  color: transparent;
+  text-shadow: 0 0 0 #dcded8;
+  margin: 0;
+}
+
+.user__image {
+  width: 250px;
+  border-radius: 50%;
 }
 
 .user__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.user__socials {
+user__info__1 {
+  flex-direction: column;
 }
+
+user__info__2 {
+  flex-direction: column;
+}
+
+/* .user__socials {
+} */
+
+.soundcloud {
+  width: 75vw;
+}
+
 .icon {
   width: 40px;
   height: 40px;

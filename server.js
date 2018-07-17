@@ -30,19 +30,20 @@ let locations = {
     name: "Spain",
     latLong: [220, 0]
   }
- };
- 
- let users = [
+};
+
+let users = [
   {
     id: 1,
     name: "Ollie",
     surname: "Crook",
-    image: "https://...",
+    image:
+      "https://pbs.twimg.com/profile_images/1002882008454967296/_gecgo4l_400x400.jpg",
     locationIds: [1, 3],
     instruments: ["Bass", "Guitar"],
     genres: ["Jazz"],
     social: {
-      soundcloud: "https://...",
+      soundcloud: "139581262",
       twitter: "oilyquack",
       instagram: "oilyquack"
     },
@@ -55,12 +56,12 @@ let locations = {
     image: "https://...",
     location: [1, 2],
     instruments: ["Drums", "Vocals"],
-    genre: ["Screams"],
+    genres: ["Screams"],
     social: {
       soundcloud: "https://...",
       twitter: "rices",
       instagram: "licence",
- 
+
       availability: "everyDay"
     }
   },
@@ -71,7 +72,7 @@ let locations = {
     image: "https://...",
     location: [1, 3],
     instruments: ["Drums", "Vocals"],
-    genre: ["Screams"],
+    genres: ["Screams"],
     social: {
       soundcloud: "https://...",
       twitter: "MycallThomas",
@@ -86,7 +87,7 @@ let locations = {
     image: "https://...",
     location: "London",
     instruments: ["Bass", "Vocals"],
-    genre: ["Screams"],
+    genres: ["Screams"],
     social: {
       soundcloud: "https://...",
       twitter: "Rafal",
@@ -101,7 +102,7 @@ let locations = {
     image: "https://...",
     location: "London",
     instruments: ["Guitar", "Vocals"],
-    genre: ["Screams"],
+    genres: ["Screams"],
     social: {
       soundcloud: "https://...",
       twitter: "MattGarrity",
@@ -184,26 +185,22 @@ let locations = {
     },
     availability: "weekends"
   }
- ];
+];
 
 app.get("/api/users", function(req, res) {
   res.json(users);
 });
 app.get("/api/users/:instrument", function(req, res) {
-  if(req.params.instrument==="all")
-  {
-    
-  res.json(users);
-  }
-  else{
-    
-  let filteredArray = users.filter(user=>{
-    return (user.instruments.indexOf(req.params.instrument) >-1)
-  });
+  if (req.params.instrument === "all") {
+    res.json(users);
+  } else {
+    let filteredArray = users.filter(user => {
+      return user.instruments.indexOf(req.params.instrument) > -1;
+    });
 
-  console.log(filteredArray);
-  res.json(filteredArray);
-}
+    console.log(filteredArray);
+    res.json(filteredArray);
+  }
 });
 
 app.get("*", function(req, res) {
