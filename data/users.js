@@ -8,7 +8,7 @@ module.exports = [
       instruments: ["Bass", "Guitar"],
       genres: ["Jazz"],
       social: {
-        soundcloud: " ",
+        soundcloud: "139581262",
         twitter: "oilyquack",
         instagram: "oilyquack"
       },
@@ -21,7 +21,7 @@ module.exports = [
       image: " ",
       location: [1, 2],
       instruments: ["Drums", "Vocals","Piano"],
-      genre: ["Screams"],
+      genres: ["Screams"],
       social: {
         soundcloud: " ",
         twitter: "rices",
@@ -36,7 +36,7 @@ module.exports = [
       image: " ",
       location: [1, 3],
       instruments: ["Drums", "Vocals"],
-      genre: ["Screams"],
+      genres: ["Screams"],
       social: {
         soundcloud: " ",
         twitter: "MycallThomas",
@@ -51,7 +51,7 @@ module.exports = [
       image: " ",
       location: "London",
       instruments: ["Bass", "Vocals"],
-      genre: ["Screams"],
+      genres: ["Screams"],
       social: {
         soundcloud: " ",
         twitter: "Rafal",
@@ -66,7 +66,7 @@ module.exports = [
       image: " ",
       location: "London",
       instruments: ["Guitar", "Vocals"],
-      genre: ["Screams"],
+      genres: ["Screams"],
       social: {
         soundcloud: " ",
         twitter: "MattGarrity",
