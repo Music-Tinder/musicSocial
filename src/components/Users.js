@@ -10,16 +10,17 @@ class Users extends React.Component {
     } else filteredArray = this.props.musicians;
 
     return (
-      <div className="app__users">
+      <div className="users">
         {filteredArray.map(user => {
           return (
-            <div className="app__users__card" key={user.id}>
+            <div className="user" key={user.id}>
+              <h2>
+                {user.name} {user.surname}
+              </h2>
+              <p>➕</p>
               <img src={user.image} />
-              <div className="app__users__card__info">
-                <p>
-                  Name: {user.name} {user.surname}
-                </p>
-                <p> Instruments: </p>
+              <div className="user__info">
+                <h3> Instruments: </h3>
                 {user.instruments.map((instrument, index) => {
                   return (
                     <div key={instrument}>
@@ -29,11 +30,23 @@ class Users extends React.Component {
                     </div>
                   );
                 })}
+                <h3>Location:</h3> <p>{user.location}</p>
+                <h3>Genres:</h3> <p>{user.genres}</p>
+                <h3>Availability:</h3> <p>{user.availability}</p>
               </div>
-              <div className="app__users__card__socials">
-                <i src="../../static/assets/insta.png" />
-                <i src="../../static/assets/twitter.png" />
-                <i src="../../static/assets/soundcloud.png" />
+              <div className="user__socials">
+                <a href={user.social.instagram} target="_blank">
+                  <img className="icon" src="../static/assets/insta.png" />
+                </a>
+                <a href={user.social.twitter} target="_blank">
+                  <img className="icon" src="../static/assets/twitter.png" />
+                </a>
+                <a href={user.social.soundcloud} target="_blank">
+                  <img className="icon" src="../static/assets/soundcloud.png" />
+                </a>
+                <a href={user.social.youtube} target="_blank">
+                  <img className="icon" src="../static/assets/youtube.png" />
+                </a>
               </div>
             </div>
           );

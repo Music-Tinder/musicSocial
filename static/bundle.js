@@ -26899,25 +26899,29 @@ var Users = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        { className: "app__users" },
+        { className: "users" },
         filteredArray.map(function (user) {
           return _react2.default.createElement(
             "div",
-            { className: "app__users__card", key: user.id },
+            { className: "user", key: user.id },
+            _react2.default.createElement(
+              "h2",
+              null,
+              user.name,
+              " ",
+              user.surname
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "\u2795"
+            ),
             _react2.default.createElement("img", { src: user.image }),
             _react2.default.createElement(
               "div",
-              { className: "app__users__card__info" },
+              { className: "user__info" },
               _react2.default.createElement(
-                "p",
-                null,
-                "Name: ",
-                user.name,
-                " ",
-                user.surname
-              ),
-              _react2.default.createElement(
-                "p",
+                "h3",
                 null,
                 " Instruments: "
               ),
@@ -26934,14 +26938,64 @@ var Users = function (_React$Component) {
                     " "
                   )
                 );
-              })
+              }),
+              _react2.default.createElement(
+                "h3",
+                null,
+                "Location:"
+              ),
+              " ",
+              _react2.default.createElement(
+                "p",
+                null,
+                user.location
+              ),
+              _react2.default.createElement(
+                "h3",
+                null,
+                "Genres:"
+              ),
+              " ",
+              _react2.default.createElement(
+                "p",
+                null,
+                user.genres
+              ),
+              _react2.default.createElement(
+                "h3",
+                null,
+                "Availability:"
+              ),
+              " ",
+              _react2.default.createElement(
+                "p",
+                null,
+                user.availability
+              )
             ),
             _react2.default.createElement(
               "div",
-              { className: "app__users__card__socials" },
-              _react2.default.createElement("i", { src: "../../static/assets/insta.png" }),
-              _react2.default.createElement("i", { src: "../../static/assets/twitter.png" }),
-              _react2.default.createElement("i", { src: "../../static/assets/soundcloud.png" })
+              { className: "user__socials" },
+              _react2.default.createElement(
+                "a",
+                { href: user.social.instagram, target: "_blank" },
+                _react2.default.createElement("img", { className: "icon", src: "../static/assets/insta.png" })
+              ),
+              _react2.default.createElement(
+                "a",
+                { href: user.social.twitter, target: "_blank" },
+                _react2.default.createElement("img", { className: "icon", src: "../static/assets/twitter.png" })
+              ),
+              _react2.default.createElement(
+                "a",
+                { href: user.social.soundcloud, target: "_blank" },
+                _react2.default.createElement("img", { className: "icon", src: "../static/assets/soundcloud.png" })
+              ),
+              _react2.default.createElement(
+                "a",
+                { href: user.social.youtube, target: "_blank" },
+                _react2.default.createElement("img", { className: "icon", src: "../static/assets/youtube.png" })
+              )
             )
           );
         })
