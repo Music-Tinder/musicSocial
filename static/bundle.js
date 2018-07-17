@@ -26899,44 +26899,50 @@ var Users = function (_React$Component) {
 
       return _react2.default.createElement(
         "div",
-        null,
+        { className: "app__users" },
         filteredArray.map(function (user) {
           return _react2.default.createElement(
             "div",
-            { key: user.id },
+            { className: "app__users__card", key: user.id },
+            _react2.default.createElement("img", { src: user.image }),
             _react2.default.createElement(
-              "p",
-              null,
-              " Name: ",
-              user.name,
-              " "
+              "div",
+              { className: "app__users__card__info" },
+              _react2.default.createElement(
+                "p",
+                null,
+                "Name: ",
+                user.name,
+                " ",
+                user.surname
+              ),
+              _react2.default.createElement(
+                "p",
+                null,
+                " Instruments: "
+              ),
+              user.instruments.map(function (instrument, index) {
+                return _react2.default.createElement(
+                  "div",
+                  { key: instrument },
+                  _react2.default.createElement(
+                    "p",
+                    null,
+                    index + 1,
+                    "-: ",
+                    instrument,
+                    " "
+                  )
+                );
+              })
             ),
             _react2.default.createElement(
-              "p",
-              null,
-              " Surname: ",
-              user.surname,
-              " "
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              " instruments: "
-            ),
-            user.instruments.map(function (instrument, index) {
-              return _react2.default.createElement(
-                "div",
-                { key: instrument },
-                _react2.default.createElement(
-                  "p",
-                  null,
-                  index + 1,
-                  "-: ",
-                  instrument,
-                  "  "
-                )
-              );
-            })
+              "div",
+              { className: "app__users__card__socials" },
+              _react2.default.createElement("i", { src: "../../static/assets/insta.png" }),
+              _react2.default.createElement("i", { src: "../../static/assets/twitter.png" }),
+              _react2.default.createElement("i", { src: "../../static/assets/soundcloud.png" })
+            )
           );
         })
       );
