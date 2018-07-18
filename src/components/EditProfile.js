@@ -32,14 +32,15 @@ class EditProfile extends React.Component{
         return(
             <div>
 
-            <User user={this.props.profile} />
+            <User user={this.props.profile} isLogged={this.props.isLogged}  selected={this.props.profile}/>
             <br/>
             <p> favourite profiles: </p>
             {this.props.profile.favourites.map((id,index)=>{
                 return(
-                    <div>
+                    <div key={index}>
                         <p> Favourite Profile #{index+1} </p>
-                        <User user={this.props.profiles[id-1]}  />
+                        <User user={this.props.profiles[id-1]}   selected={this.props.profile}
+                        isLogged={this.props.isLogged} />
                     </div>
                 );
             })}
