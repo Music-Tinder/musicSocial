@@ -39,7 +39,7 @@ class User extends React.Component {
               return (
                 <div key={instrument}>
                   <p>
-                    {index + 1}-: {instrument}{" "}
+                    {index + 1}. {instrument}{" "}
                   </p>
                 </div>
               );
