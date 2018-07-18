@@ -38,9 +38,7 @@ class User extends React.Component {
             {this.props.user.instruments.map((instrument, index) => {
               return (
                 <div key={instrument}>
-                  <p>
-                    {index + 1}. {instrument}{" "}
-                  </p>
+                  <p>{instrument}</p>
                 </div>
               );
             })}
