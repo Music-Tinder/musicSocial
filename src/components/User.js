@@ -6,6 +6,25 @@ class User extends React.Component {
     constructor(){
         super();
         
+        this.favouriteHandler = this.favouriteHandler.bind(this);
+    }
+
+    favouriteHandler(event){
+      
+      if(this.props.isLogged){
+        if (this.props.user.id === this.props.selected.id)
+      alert("Who do you think you are...You cannot add yourself to favourites!")
+
+        else if ( this.props.selected.favourites.indexOf(this.props.user.id) >=0 )
+        alert("again?!!")
+
+
+      }
+
+      else
+      alert("log in beeech")
+
+     
     }
 
     render(){
@@ -15,7 +34,7 @@ class User extends React.Component {
                 <h2 className="username">
                   {this.props.user.name} {this.props.user.surname}
                 </h2>
-                <p className="add-to-favourites">➕</p>
+                <p className="add-to-favourites" onClick={this.favouriteHandler}>➕</p>
               </div>
 
               <img className="user__image" src={this.props.user.image} />

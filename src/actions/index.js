@@ -14,7 +14,6 @@ export function fetchUsers(){
   }
 }
 
-
 export function storeUsers(data){
 
   return{
@@ -28,5 +27,12 @@ export function selectUser(user){
   return{
     type: "SELECT_USER",
     user
+  }
+}
+
+export function logIn(status){
+  return{
+    type: "LOGGED_IN",
+    status
   }
 }
