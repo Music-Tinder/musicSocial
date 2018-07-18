@@ -23,8 +23,9 @@ module.exports = [
     id: 2,
     name: "Ahmed",
     surname: "ices",
-    image: "../static/assets/",
-    location: [1, 2],
+    image:
+      "https://image.spreadshirtmedia.com/image-server/v1/compositions/1010565968/views/1,width=650,height=650,appearanceId=231,version=1515071370/vegan-est-1944.jpg",
+    locationIds: [1, 2],
     instruments: ["Drums", "Vocals", "Piano"],
     genres: ["Screams"],
     social: {
@@ -42,8 +43,9 @@ module.exports = [
     id: 3,
     name: "Michael",
     surname: "Thomas",
-    image: " ",
-    location: [1, 3],
+    image:
+      "https://pbs.twimg.com/profile_images/1003742924125990914/rvyOSQf7_400x400.jpg",
+    locationIds: [1, 3],
     instruments: ["Drums", "Vocals"],
     genres: ["Screams"],
     social: {
@@ -61,15 +63,16 @@ module.exports = [
     id: 4,
     name: "Rafal",
     surname: "Porzucek",
-    image: "https://i.imgur.com/QHsep7k.jpg",
-    location: "London",
+    image:
+      "https://pbs.twimg.com/profile_images/1008003944763809792/W5_wNMXh_400x400.jpg",
+    locationIds: [1],
     instruments: ["Bass", "Vocals"],
     genres: ["Screams"],
     social: {
       soundcloudProfile: "tiesto",
       soundcloudTrack: "",
       soundcloud: "139581256",
-      twitter: "Rafal",
+      twitter: "RafaPorzucek",
       instagram: "Rafal",
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
@@ -80,8 +83,9 @@ module.exports = [
     id: 5,
     name: "Matt",
     surname: "Garrity",
-    image: " ",
-    location: "London",
+    image:
+      "https://a2-images.myspacecdn.com/images02/128/642567b8994f460d962577aa0feeb244/full.jpg",
+    locationIds: [1],
     instruments: ["Guitar", "Vocals"],
     genres: ["Screams"],
     social: {
@@ -99,7 +103,7 @@ module.exports = [
     id: 6,
     name: "Whitney",
     surname: "Houston",
-    image: " ",
+    image: "http://www.rap-up.com/app/uploads/whitney-comeback.jpg",
     locationIds: [4, 1],
     instruments: ["Vocals", "Guitar"],
     genres: ["R n B"],
@@ -118,7 +122,8 @@ module.exports = [
     id: 7,
     name: "James",
     surname: "Blunt",
-    image: " ",
+    image:
+      "https://pbs.twimg.com/profile_images/823481178787299328/wLtHwjUF_400x400.jpg",
     locationIds: [1, 3],
     instruments: ["Vocals", "Guitar"],
     genres: ["Jazz"],
@@ -137,7 +142,8 @@ module.exports = [
     id: 8,
     name: "Joe",
     surname: "Spunge",
-    image: " ",
+    image:
+      "http://snaprockandpop.co.uk/wp-content/uploads/2014/01/[SPUNGE]82.jpg",
     locationIds: [1, 3],
     instruments: ["Guitar"],
     genres: ["Jazz"],
@@ -156,7 +162,8 @@ module.exports = [
     id: 9,
     name: "Harry",
     surname: "Styles",
-    image: " ",
+    image:
+      "https://vz.cnwimg.com/thumbc-300x300/wp-content/uploads/2012/04/Harry-Styles.jpg",
     locationIds: [1, 3],
     instruments: ["Vocals"],
     genres: ["Jazz"],
@@ -175,7 +182,8 @@ module.exports = [
     id: 10,
     name: "Marc ",
     surname: "Anthony",
-    image: " ",
+    image:
+      "https://pbs.twimg.com/profile_images/978648907109552129/x-2iUJcK_400x400.jpg",
     locationIds: [1, 5],
     instruments: ["Vocals", "Guitar"],
     genres: ["Love Songs"],
