@@ -47,10 +47,10 @@ class EditProfile extends React.Component{
 
 
             <br/>
-            <form>
+            <form className="hidden">
             <label>First Name</label>
             <input onChange={this.firstNameHandler} placeholder={this.props.profile.name} value={this.state.firstName} />
-            <br/> <label>SurName</label>
+            <br/> <label>Surname</label>
             <input onChange={this.surnameHandler} placeholder={this.props.profile.surname} value={this.state.surName} />
             <button onClick={this.submitHandler}> Update Profile </button>
             </form>

@@ -3,5 +3,5 @@ module.exports = [{
     name: "Ollie Crook",
     title: "test",
     content: "Anything",
-    date: "18-July-2018"
+    date: "18/7/2018 at: 19:52"
 }]
