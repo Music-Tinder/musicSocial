@@ -1,38 +1,36 @@
-export function fetchUsers(){
-
-  return function(dispatch){
-    return fetch(
-      `/api/users/`
-    )
+export function fetchUsers() {
+  return function(dispatch) {
+    return fetch(`/api/users/`)
       .then(response => response.json())
       .then(json => {
-
-       dispatch(storeUsers(json));
+        dispatch(storeUsers(json));
       });
-
-
-  }
+  };
 }
 
-export function storeUsers(data){
-
-  return{
+export function storeUsers(data) {
+  return {
     type: "LOAD_USERS",
     users: data
-  }
-
+  };
 }
 
-export function selectUser(user){
-  return{
+export function selectUser(user) {
+  return {
     type: "SELECT_USER",
     user
-  }
+  };
 }
 
-export function logIn(status){
-  return{
+export function logIn(status) {
+  return {
     type: "LOGGED_IN",
     status
-  }
+  };
+}
+
+export function loadVideo() {
+  return {
+    type: "LOAD_HOME_PAGE_VIDEO"
+  };
 }
