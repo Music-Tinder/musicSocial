@@ -1,41 +1,29 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-function Header(){
-
-    return (
-        <header>
-          <h1> MUSIC </h1>
-        
-          <ul >
-          <li >
-              <Link to="/all">ALL</Link>
-            </li>
-            <li >
-              <Link to="/guitar">GUITAR</Link>
-            </li>
-            <li >
-              <Link to="/drums">DRUMS</Link>
-            </li>
-            <li >
-              <Link to="/vocals">VOCALS</Link>
-            </li>
-            <li >
-              <Link to="/other">OTHER</Link>
-            </li>
-            <li >
-              <Link to="/create">CREATE POST</Link>
-            </li>
-            <li >
-              <Link to="/profile">Profile</Link>
-            </li>
-          </ul>
-        
-      </header>
-    );
-  
-
+function Header() {
+  return (
+    <header className="header">
+      <h1> MUSIC </h1>
+      <div className="header__nav">
+        <p>
+          <Link to="/all">ALL</Link>
+        </p>
+        <p>
+          <Link to="/guitar">GUITAR</Link>
+        </p>
+        <p>
+          <Link to="/drums">DRUMS</Link>
+        </p>
+        <p>
+          <Link to="/vocals">VOCALS</Link>
+        </p>
+        <p>
+          <Link to="/other">OTHER</Link>
+        </p>
+      </div>
+    </header>
+  );
 }
-
 
 export default Header;
