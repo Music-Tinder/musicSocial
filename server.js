@@ -6,11 +6,16 @@ app.set("view engine", "hbs");
 
 const data = {
   locations: require("./data/locations"),
-  users: require("./data/users")
+  users: require("./data/users"),
+  wallPosts: require("./data/wallPosts")
 };
 
 app.get("/api/users", function(req, res) {
   res.json(data.users);
+});
+
+app.get("/api/wallPosts", function(req, res) {
+  res.json(data.wallPosts);
 });
 
 app.get("*", function(req, res) {
