@@ -25,7 +25,7 @@ class Menu extends React.Component {
             render={() => <UsersContainer instrument="Vocals" />}
           />
           <Route path="/other" component={Others} />
-          <Route path="/create" />
+          <Route path="/create" component={PostContainer} />
           <Route path="/profile" component={ProfileContainer} />
         </Switch>
       </div>
