@@ -12,6 +12,8 @@ body {
 body {
   margin: 0;
   background: linear-gradient(#141716, #68b95c);
+  background-repeat: no-repeat;
+  background-size: auto;
   font-family: "Montserrat", sans-serif;
   color: #dcded8;
 }
@@ -21,7 +23,7 @@ body {
 HEADER */
 
 .header {
-  position: sticky;
+  position: absolute;
 
   top: 0;
   width: 100%;
@@ -144,7 +146,7 @@ user__info__2 {
   flex-direction: row;
   justify-content: space-evenly;
 
-  position: sticky;
+  position: fixed;
   bottom: 0;
 
   background: #141716;
