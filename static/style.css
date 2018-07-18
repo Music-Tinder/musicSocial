@@ -12,7 +12,9 @@ body {
   height: 100%;
 }
 
-/* HEADER */
+/* MOBILE VIEW 
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+HEADER */
 
 .header {
   position: sticky;
