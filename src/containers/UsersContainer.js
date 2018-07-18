@@ -20,9 +20,8 @@ const mapDispatchToProps = dispatch => {
     dispatch(fetchUsers());
 
     return{
-        getMusicians : () => dispatch(fetchUsers()),
+        getMusicians : () => dispatch(fetchUsers())
         
-            
         }
       
     }

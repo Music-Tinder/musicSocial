@@ -5,16 +5,43 @@ class User extends React.Component {
     super();
 
     this.favouriteHandler = this.favouriteHandler.bind(this);
+    this.state={added:[]}
   }
 
   favouriteHandler(event) {
     if (this.props.isLogged) {
       if (this.props.user.id === this.props.selected.id)
-        alert(
-          "Who do you think you are...You cannot add yourself to favourites!"
-        );
+        alert("Who do you think you are...You cannot add yourself to favourites!");
       else if (this.props.selected.favourites.indexOf(this.props.user.id) >= 0)
         alert("again?!!");
+        else{
+          if(this.state.added.indexOf(this.props.user.id)<0){
+
+
+          const self=this;
+
+          let newFav={
+            id:this.props.selected.id-1,
+            favId:this.props.user.id
+          }
+          fetch('/api/addFavourite', {
+            method: 'post',
+            body: JSON.stringify(newFav),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }).then(function(response) {
+            return response.json();
+          }).then(function(data) {
+            self.setState({added:[...self.state.added,self.props.user.id]})
+          });
+        }
+
+        else
+        alert("you literally just added this one")
+
+        }
+
     } else alert("log in beeech");
   }
 

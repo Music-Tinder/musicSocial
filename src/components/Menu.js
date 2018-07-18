@@ -3,8 +3,10 @@ import { Switch, Route } from "react-router-dom";
 import UsersContainer from "../containers/UsersContainer";
 import Others from "../components/Others";
 import ProfileContainer from "../containers/ProfileContainer";
+import PostContainer from "../containers/PostContainer"
 
 class Menu extends React.Component {
+
   render() {
     return (
       <div className="menu">
@@ -23,12 +25,13 @@ class Menu extends React.Component {
             render={() => <UsersContainer instrument="Vocals" />}
           />
           <Route path="/other" component={Others} />
-          <Route path="/create" />
+          <Route path="/create" component={PostContainer} />
           <Route path="/profile" component={ProfileContainer} />
         </Switch>
       </div>
     );
   }
+
 }
 
 export default Menu;
