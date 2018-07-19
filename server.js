@@ -31,8 +31,6 @@ app.post('/api/addWallPost', function(req,res){
 });
 
 // app.get('/api/ip', function(req,res){
-  
- 
 //  publicIp.v4().then(ip => {
 //   console.log(ip);})
 //   res.json({msg:"done"});
