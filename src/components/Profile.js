@@ -12,7 +12,6 @@ class Profile extends React.Component {
     changeHandler(event){
        
         let tempObj= this.props.musicians[event.target.value-1]
-        // this.setState({selectedPofile:tempObj})
         this.props.selectMusician(tempObj);
         this.props.logIn(true);
         this.setState({isSelected:true})
@@ -34,7 +33,7 @@ class Profile extends React.Component {
 
                     </select>
                    
-                    <EditProfile isSelected={this.state.isSelected} profile={this.props.selected}
+                    <EditProfile isSelected={this.props.isLogged} profile={this.props.selected}
                      profiles={this.props.musicians} isLogged={this.props.isLogged} />
 
               </div>

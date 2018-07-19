@@ -5,6 +5,12 @@ class User extends React.Component {
     super();
 
     this.favouriteHandler = this.favouriteHandler.bind(this);
+    this.chatHandler = this.chatHandler.bind(this);
+    this.closeHandler = this.closeHandler.bind(this);
+    this.messageHandler = this.messageHandler.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
+    this.subjectHandler = this.subjectHandler.bind(this);
+    this.state = { added: [], msgMode: false, message: "", subject: "" };
   }
 
   favouriteHandler(event) {
@@ -15,7 +21,106 @@ class User extends React.Component {
         );
       else if (this.props.selected.favourites.indexOf(this.props.user.id) >= 0)
         alert("again?!!");
-    } else alert("log in beeech");
+      else {
+        if (this.state.added.indexOf(this.props.user.id) < 0) {
+          const self = this;
+
+          let newFav = {
+            id: this.props.selected.id - 1,
+            favId: this.props.user.id
+          };
+          fetch("/api/addFavourite", {
+            method: "post",
+            body: JSON.stringify(newFav),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(data) {
+              self.setState({
+                added: [...self.state.added, self.props.user.id]
+              });
+            });
+        } else alert("you literally just added this one");
+      }
+    } else alert("log in first pls");
+  }
+
+  chatHandler() {
+    if (this.props.isLogged) {
+      if (this.props.user.id === this.props.selected.id)
+        alert("msging yourself mr lonely?");
+      else {
+        this.setState({ msgMode: true });
+      }
+    } else alert("log in first pls");
+  }
+
+  closeHandler(event) {
+    event.preventDefault();
+    this.setState({ msgMode: true });
+  }
+
+  subjectHandler(event) {
+    this.setState({ subject: event.target.value });
+  }
+
+  messageHandler(event) {
+    this.setState({ message: event.target.value });
+  }
+
+  submitHandler(event) {
+    event.preventDefault();
+
+    const self = this;
+    fetch("/api/msg", {
+      method: "post",
+      body: JSON.stringify({ sendTo: sendTo, sender: sender }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {});
+
+    let date = new Date();
+    let fullDate = `${date.getDate()}/${date.getMonth() +
+      1}/${date.getFullYear()} at: ${date.getHours()}:${date.getMinutes()}`;
+
+    let sendTo = {
+      id: this.props.user.id,
+      name: this.props.user.name + " " + this.props.user.surname,
+      title: this.state.subject,
+      content: this.state.message,
+      date: fullDate
+    };
+
+    let sender = {
+      id: this.props.selected.id,
+      name: this.props.selected.name + " " + this.props.selected.surname,
+      title: this.state.subject,
+      content: this.state.message,
+      date: fullDate
+    };
+
+    fetch("/api/msg", {
+      method: "post",
+      body: JSON.stringify({ sendTo: sendTo, sender: sender }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {});
+
+    this.setState({ message: "", subject: "", msgMode: false });
   }
 
   render() {
@@ -28,6 +133,19 @@ class User extends React.Component {
           <p className="add-to-favourites" onClick={this.favouriteHandler}>
             ➕
           </p>
+        </div>
+
+        <div>
+          <form className={this.state.msgMode ? "" : "hidden"}>
+            <button onClick={this.closeHandler}> X </button> <br />
+            <label>subject</label>{" "}
+            <input onChange={this.subjectHandler} value={this.state.subject} />{" "}
+            <br />
+            <label>content</label>{" "}
+            <input onChange={this.messageHandler} value={this.state.message} />{" "}
+            <br />
+            <button onClick={this.submitHandler}> send </button>
+          </form>
         </div>
 
         <img className="user__image" src={this.props.user.image} />
@@ -93,6 +211,9 @@ class User extends React.Component {
           >
             <img className="icon" src="../static/assets/youtube.png" />
           </a>
+          <button className="msg-button" onClick={this.chatHandler}>
+            ✉️
+          </button>
         </div>
       </div>
     );
