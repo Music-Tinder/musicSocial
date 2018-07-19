@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const app = express();
-const publicIp = require('public-ip');
+// const publicIp = require('public-ip');
 
 app.use("/static", express.static("static"));
 app.use(bodyParser.json());
@@ -30,13 +30,13 @@ app.post('/api/addWallPost', function(req,res){
   res.json({posts:data.wallPosts});
 });
 
-app.get('/api/ip', function(req,res){
+// app.get('/api/ip', function(req,res){
   
  
- publicIp.v4().then(ip => {
-  console.log(ip);})
-  res.json({msg:"done"});
-});
+//  publicIp.v4().then(ip => {
+//   console.log(ip);})
+//   res.json({msg:"done"});
+// });
 
 app.post('/api/addFavourite', function(req,res){
   data.users[req.body.id].favourites.push(req.body.favId)
