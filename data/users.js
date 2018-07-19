@@ -30,16 +30,16 @@ module.exports = [
   {
     id: 2,
     name: "Ahmed",
-    surname: "ices",
+    surname: "Pigeons",
     image:
-      "https://image.spreadshirtmedia.com/image-server/v1/compositions/1010565968/views/1,width=650,height=650,appearanceId=231,version=1515071370/vegan-est-1944.jpg",
-    locationIds: "Mosul",
+      "http://1000logos.net/wp-content/uploads/2017/03/Nestle-Logo.png",
+    locationIds: "The Roof",
     instruments: ["Drums", "Vocals", "Piano"],
     genres: ["Screams"],
     social: {
       soundcloudProfile: "tiesto",
       soundcloudTrack: "",
-      soundcloud: "139581261",
+      soundcloud: "261251271",
       twitter: "rices",
       instagram: "licence",
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
