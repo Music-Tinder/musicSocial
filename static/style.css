@@ -204,6 +204,12 @@ user__info__2 {
   text-decoration: underline;
 }
 
+/* PROFILES */
+
+.profiles {
+  text-align: center;
+}
+
 /* MESSAGE BOARD */
 
 /* CREATE NEW POST */
