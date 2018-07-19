@@ -97,7 +97,7 @@ class User extends React.Component {
       date: fullDate
     };
 
-   
+   const self=this;
 
     fetch("/api/msg", {
       method: "post",
@@ -109,7 +109,10 @@ class User extends React.Component {
       .then(function(response) {
         return response.json();
       })
-      .then(function(data) {});
+      .then(function(data) {
+        console.log(data);
+        self.props.selectMusician(data);
+      });
 
     this.setState({ message: "", subject: "", msgMode: false });
   }

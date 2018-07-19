@@ -26,6 +26,7 @@ class EditProfile extends React.Component {
                 user={this.props.profiles[id - 1]}
                 selected={this.props.profile}
                 isLogged={this.props.isLogged}
+                selectMusician={this.props.selectMusician}
               />
             </div>
           );
