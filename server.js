@@ -1,5 +1,5 @@
 const express = require("express");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const app = express();
 // const publicIp = require('public-ip');
 
@@ -25,10 +25,11 @@ app.get("/api/user/:id", function(req, res) {
   res.json(data.users[req.params.id]);
 });
 
-app.post('/api/addWallPost', function(req,res){
+app.post("/api/addWallPost", function(req, res) {
   data.wallPosts.unshift(req.body);
-  res.json({posts:data.wallPosts});
+  res.json({ posts: data.wallPosts });
 });
+
 
 // app.get('/api/ip', function(req,res){
 //  publicIp.v4().then(ip => {
@@ -36,18 +37,17 @@ app.post('/api/addWallPost', function(req,res){
 //   res.json({msg:"done"});
 // });
 
-app.post('/api/addFavourite', function(req,res){
-  data.users[req.body.id].favourites.push(req.body.favId)
-  res.json({users:data.users});
+
+app.post("/api/addFavourite", function(req, res) {
+  data.users[req.body.id].favourites.push(req.body.favId);
+  res.json({ users: data.users });
 });
 
-app.post('/api/msg', function(req,res){
-  
- data.users[req.body.sendTo.id-1].inbox.unshift(req.body.sender);
- data.users[req.body.sender.id-1].sent.unshift(req.body.sendTo);
- res.json(data.users[req.body.sender.id-1])
+app.post("/api/msg", function(req, res) {
+  data.users[req.body.sendTo.id - 1].inbox.unshift(req.body.sender);
+  data.users[req.body.sender.id - 1].sent.unshift(req.body.sendTo);
+  res.json(data.users[req.body.sender.id - 1]);
 });
-
 
 app.get("*", function(req, res) {
   res.render("index");
