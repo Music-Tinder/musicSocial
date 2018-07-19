@@ -126,18 +126,6 @@ class User extends React.Component {
           </p>
         </div>
 
-        <div>
-          <form className={this.state.msgMode ? "" : "hidden"}>
-            <button onClick={this.closeHandler}> X </button> <br />
-            <label>subject</label>{" "}
-            <input onChange={this.subjectHandler} value={this.state.subject} />{" "}
-            <br />
-            <label>content</label>{" "}
-            <input onChange={this.messageHandler} value={this.state.message} />{" "}
-            <br />
-            <button onClick={this.submitHandler}> send </button>
-          </form>
-        </div>
 
         <img className="user__image" src={this.props.user.image} />
 
@@ -170,6 +158,16 @@ class User extends React.Component {
             }&color=%68b95c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
           />
         </div>
+          <form className={this.state.msgMode ? "" : "hidden"}>
+        <div className="message-box">
+            <input className="message-box__subject-field" onChange={this.subjectHandler} value={this.state.subject} placeholder="Subject" />{" "}
+            <br />
+            <input className="message-box__content-field" onChange={this.messageHandler} placeholder="Message" value={this.state.message} />{" "}
+            <br />
+            <button onClick={this.submitHandler}> send </button>
+            <button onClick={this.closeHandler}> 🗑 </button> <br />
+        </div>
+          </form>
         <div className="user__socials">
           <a
             href={`https://www.instagram.com/${

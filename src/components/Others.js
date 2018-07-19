@@ -23,7 +23,7 @@ class Others extends React.Component {
             <div className="other-components">
                 {this.state.instruments.map(instrument =>{
                     return(
-                        <button  onClick={this.choiceHandler} key={instrument}>{instrument}</button>
+                        <button onClick={this.choiceHandler} key={instrument}>{instrument}</button>
                     );
                 })}
 

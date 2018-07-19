@@ -175,6 +175,25 @@ user__info__2 {
   width: 20px;
   margin: 0 5px;
 }
+/*message input*/
+.message-box{
+  background: rgba(109, 173, 120, 0.815);
+  padding-top:5px;
+}
+.message-box input{
+margin: 5px;
+}
+.message-box button{
+  margin: 5px;
+}
+
+.message-box__content-field{
+  width: 200px;
+  height: 100px;
+}
+.message-box__subject-field{
+  width: 200px;
+}
 
 /* FOOTER */
 
