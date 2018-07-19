@@ -17,7 +17,15 @@ module.exports = [
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "weekends",
-    favourites: [2, 3]
+    favourites: [2, 3],
+    inbox:[{
+      id: 2,
+      name: "Ahmed ices",
+      title: "msg test",
+      content: "Anything",
+      date: "18/7/2018 at: 19:52"
+  }],
+    sent:[]
   },
   {
     id: 2,
@@ -37,7 +45,15 @@ module.exports = [
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "everyDay",
-    favourites: [4, 3]
+    favourites: [4, 3],
+    inbox:[],
+    sent:[{
+      id: 1,
+      name: "Ollie Crook",
+      title: "msg test",
+      content: "Anything",
+      date: "18/7/2018 at: 19:52"
+  }]
   },
   {
     id: 3,
@@ -57,7 +73,9 @@ module.exports = [
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "Tuesday",
-    favourites: [2, 4]
+    favourites: [2, 4],
+    inbox:[],
+    sent:[]
   },
   {
     id: 4,
@@ -77,7 +95,9 @@ module.exports = [
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "Saturday",
-    favourites: [2, 3]
+    favourites: [2, 3],
+    inbox:[],
+    sent:[]
   },
   {
     id: 5,
@@ -97,7 +117,9 @@ module.exports = [
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "everyDay",
-    favourites: [2, 3]
+    favourites: [2, 3],
+    inbox:[],
+    sent:[]
   },
   {
     id: 6,
@@ -116,7 +138,9 @@ module.exports = [
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "weekends",
-    favourites: [2, 3]
+    favourites: [2, 3],
+    inbox:[],
+    sent:[]
   },
   {
     id: 7,
@@ -136,7 +160,9 @@ module.exports = [
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "weekends",
-    favourites: [2, 3]
+    favourites: [2, 3],
+    inbox:[],
+    sent:[]
   },
   {
     id: 8,
@@ -156,7 +182,9 @@ module.exports = [
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "weekends",
-    favourites: [2, 3]
+    favourites: [2, 3],
+    inbox:[],
+    sent:[]
   },
   {
     id: 9,
@@ -176,7 +204,9 @@ module.exports = [
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "everyday",
-    favourites: [2, 3]
+    favourites: [2, 3],
+    inbox:[],
+    sent:[]
   },
   {
     id: 10,
@@ -196,6 +226,8 @@ module.exports = [
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
     },
     availability: "weekends",
-    favourites: [2, 3]
+    favourites: [2, 3],
+    inbox:[],
+    sent:[]
   }
 ];
