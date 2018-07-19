@@ -7,6 +7,7 @@ class Messages extends React.Component{
 
     render(){
         if(!this.props.isLogged) return <p> log in to view msgs </p>
+       
         return(
             <div>
             <h2> INBOX </h2>
