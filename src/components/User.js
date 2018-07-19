@@ -75,6 +75,8 @@ class User extends React.Component {
   submitHandler(event) {
     event.preventDefault();
 
+   
+
     let date = new Date();
     let fullDate = `${date.getDate()}/${date.getMonth() +
       1}/${date.getFullYear()} at: ${date.getHours()}:${date.getMinutes()}`;
@@ -95,6 +97,8 @@ class User extends React.Component {
       date: fullDate
     };
 
+   
+
     fetch("/api/msg", {
       method: "post",
       body: JSON.stringify({ sendTo: sendTo, sender: sender }),
@@ -103,10 +107,9 @@ class User extends React.Component {
       }
     })
       .then(function(response) {
-        return response.ok ? response.json() : Promise.reject(response);
+        return response.json();
       })
-      .then(function(data) {})
-      .catch(err => console.log("fetch /api/msg", err));
+      .then(function(data) {});
 
     this.setState({ message: "", subject: "", msgMode: false });
   }
