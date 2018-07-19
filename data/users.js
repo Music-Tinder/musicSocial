@@ -5,7 +5,7 @@ module.exports = [
     surname: "Crook",
     image:
       "https://pbs.twimg.com/profile_images/1002882008454967296/_gecgo4l_400x400.jpg",
-    locationIds: [1, 3],
+    locationIds: "London",
     instruments: ["Bass", "Guitar"],
     genres: ["Jazz"],
     social: {
@@ -33,7 +33,7 @@ module.exports = [
     surname: "ices",
     image:
       "https://image.spreadshirtmedia.com/image-server/v1/compositions/1010565968/views/1,width=650,height=650,appearanceId=231,version=1515071370/vegan-est-1944.jpg",
-    locationIds: [1, 2],
+    locationIds: "Mosul",
     instruments: ["Drums", "Vocals", "Piano"],
     genres: ["Screams"],
     social: {
@@ -61,7 +61,7 @@ module.exports = [
     surname: "Thomas",
     image:
       "https://pbs.twimg.com/profile_images/1003742924125990914/rvyOSQf7_400x400.jpg",
-    locationIds: [1, 3],
+    locationIds: "Brighton",
     instruments: ["Drums", "Vocals"],
     genres: ["Screams"],
     social: {
@@ -83,7 +83,7 @@ module.exports = [
     surname: "Porzucek",
     image:
       "https://pbs.twimg.com/profile_images/1008003944763809792/W5_wNMXh_400x400.jpg",
-    locationIds: [1],
+    locationIds: "Poznan",
     instruments: ["Bass", "Vocals"],
     genres: ["Screams"],
     social: {
@@ -105,7 +105,7 @@ module.exports = [
     surname: "Garrity",
     image:
       "https://a2-images.myspacecdn.com/images02/128/642567b8994f460d962577aa0feeb244/full.jpg",
-    locationIds: [1],
+    locationIds: "Bonny Scotland",
     instruments: ["Guitar", "Vocals"],
     genres: ["Screams"],
     social: {
@@ -126,7 +126,7 @@ module.exports = [
     name: "Whitney",
     surname: "Houston",
     image: "http://www.rap-up.com/app/uploads/whitney-comeback.jpg",
-    locationIds: [4, 1],
+    locationIds: "Houston",
     instruments: ["Vocals", "Guitar"],
     genres: ["R n B"],
     social: {
@@ -148,7 +148,7 @@ module.exports = [
     surname: "Blunt",
     image:
       "https://pbs.twimg.com/profile_images/823481178787299328/wLtHwjUF_400x400.jpg",
-    locationIds: [1, 3],
+    locationIds: "Twatsville",
     instruments: ["Vocals", "Guitar"],
     genres: ["Jazz"],
     social: {
@@ -170,7 +170,7 @@ module.exports = [
     surname: "Spunge",
     image:
       "http://snaprockandpop.co.uk/wp-content/uploads/2014/01/[SPUNGE]82.jpg",
-    locationIds: [1, 3],
+    locationIds: "Cardiff",
     instruments: ["Guitar"],
     genres: ["Jazz"],
     social: {
@@ -192,7 +192,7 @@ module.exports = [
     surname: "Styles",
     image:
       "https://vz.cnwimg.com/thumbc-300x300/wp-content/uploads/2012/04/Harry-Styles.jpg",
-    locationIds: [1, 3],
+    locationIds: "Belfast",
     instruments: ["Vocals"],
     genres: ["Jazz"],
     social: {
@@ -214,7 +214,7 @@ module.exports = [
     surname: "Anthony",
     image:
       "https://pbs.twimg.com/profile_images/978648907109552129/x-2iUJcK_400x400.jpg",
-    locationIds: [1, 5],
+    locationIds: "New York",
     instruments: ["Vocals", "Guitar"],
     genres: ["Love Songs"],
     social: {

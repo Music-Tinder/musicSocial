@@ -289,6 +289,20 @@ user__info__2 {
 .inbox__message:nth-child(even) {
   background: #c2c4bf;
 }
+
+.other-components{
+  height: 60px;
+  background: #141716;
+  text-align: center;
+
+}
+
+.other-components button{
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+}
+
 /* TABLETS */
 @media (min-width: 768px) {
   .header,
@@ -349,6 +363,12 @@ user__info__2 {
   .footer {
     font-size: 22px;
   }
+
+.other-components button{
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+}
 }
 
 /* Drop down menu code*/
@@ -356,8 +376,8 @@ user__info__2 {
 .dropbtn {
   background-color: #4CAF50;
   color: white;
-  padding: 16px;
-  font-size: 16px;
+  padding: 10px;
+  font-size: 15px;
   border: none;
   cursor: pointer;
 }
@@ -375,7 +395,7 @@ user__info__2 {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 100px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
