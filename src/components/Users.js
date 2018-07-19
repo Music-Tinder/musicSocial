@@ -17,7 +17,8 @@ class Users extends React.Component {
       <div className="users">
         {filteredArray.map(user => {
           return (
-            <User key={user.id} user={user} selected={this.props.selected} isLogged={this.props.isLogged} />
+            <User key={user.id} user={user} selected={this.props.selected} 
+            isLogged={this.props.isLogged} selectMusician={this.props.selectMusician}  />
           );
         })}
       </div>

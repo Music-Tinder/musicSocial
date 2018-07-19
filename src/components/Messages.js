@@ -3,21 +3,23 @@ import React from "react";
 import Message from '../components/Message';
 class Messages extends React.Component{
 
+   
+
     render(){
         if(!this.props.isLogged) return <p> log in to view msgs </p>
         return(
             <div>
-            <p> inbox </p>
+            <h2> INBOX </h2>
             {this.props.selected.inbox.map((msg,index)=>{
                 return(
-                    <Message msg={msg} index={index} />
+                    <Message key={index} msg={msg} index={index} />
                 )
             })}
 
-            <p> sent </p>
+            <h2> SENT </h2>
             {this.props.selected.sent.map((msg,index)=>{
                 return(
-                    <Message msg={msg} index={index} />
+                    <Message key={index} msg={msg} index={index} />
                 )
             })}
 

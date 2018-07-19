@@ -10,7 +10,11 @@ class Post extends React.Component {
         {/* <p> #{this.props.index + 1}</p> */}
         <p>
           <strong>{this.props.post.name}</strong> -{" "}
-          <i>{this.props.post.title}</i>
+          {this.props.post.title === "" ? (
+            <i>No Title</i>
+          ) : (
+            <i>{this.props.post.title}</i>
+          )}
         </p>
         <hr />
         <p> {this.props.post.content}</p>

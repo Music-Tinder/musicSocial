@@ -75,6 +75,19 @@ class User extends React.Component {
   submitHandler(event) {
     event.preventDefault();
 
+    const self = this;
+    fetch("/api/msg", {
+      method: "post",
+      body: JSON.stringify({ sendTo: sendTo, sender: sender }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {});
+
     let date = new Date();
     let fullDate = `${date.getDate()}/${date.getMonth() +
       1}/${date.getFullYear()} at: ${date.getHours()}:${date.getMinutes()}`;
