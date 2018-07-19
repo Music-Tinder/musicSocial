@@ -22,6 +22,16 @@ body {
   color: #dcded8;
 }
 
+.logo {
+  width: 60vw;
+  min-width: 360px;
+  text-align: center;
+  margin: 8% auto;
+
+  opacity: 0.4;
+  filter: alpha(opacity=50);
+}
+
 /* MOBILE VIEW 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
 HEADER */
