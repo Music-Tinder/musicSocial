@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header className="header">
-      <h1> BANDIFY </h1>
+      <h1> Bandify </h1>
       <div className="header__nav">
         <p>
           <Link to="/">HOME</Link>
