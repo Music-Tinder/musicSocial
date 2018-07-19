@@ -103,6 +103,7 @@ submitHandler(event){
     date: fullDate
   }
 
+  const self=this;
   fetch('/api/msg', {
     method: 'post',
     body: JSON.stringify({sendTo:sendTo,sender:sender}),
@@ -112,6 +113,7 @@ submitHandler(event){
   }).then(function(response) {
     return response.json();
   }).then(function(data) {
+    
      
   });
 
