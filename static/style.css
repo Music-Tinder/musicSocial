@@ -263,7 +263,25 @@ user__info__2 {
 .message-board__notices:nth-child(even) {
   background: #c2c4bf;
 }
+/* Inbox*/
 
+.inbox {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  align-items: center;
+}
+
+.inbox__message {
+  border: 1px black solid;
+  padding: 10px;
+  width: 90vw;
+  background: #dcded8;
+  color: black;
+}
+.inbox__message:nth-child(even) {
+  background: #c2c4bf;
+}
 /* TABLETS */
 @media (min-width: 768px) {
   .header,
@@ -277,7 +295,6 @@ user__info__2 {
 
   .user {
     width: 700px;
-    height: 700px;
   }
 
   .msg-button {
