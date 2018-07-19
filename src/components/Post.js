@@ -1,22 +1,27 @@
 import React from "react";
 
 class Post extends React.Component {
-    constructor(){
-        super()
-
-    }
-    render(){
-        return (
-            <div>
-                <p> Post#{this.props.index+1}</p>
-                <p> Date:-{this.props.post.date}</p>
-                <p> Title:-{this.props.post.title}</p>
-                <p> Content:-{this.props.post.content}</p>
-                <p> By:-{this.props.post.name}</p>
-            </div>
-        )
-
-    }
+  constructor() {
+    super();
+  }
+  render() {
+    return (
+      <div className="message-board__notices">
+        {/* <p> #{this.props.index + 1}</p> */}
+        <p>
+          <strong>{this.props.post.name}</strong> -{" "}
+          {this.props.post.title === "" ? (
+            <i>No Title</i>
+          ) : (
+            <i>{this.props.post.title}</i>
+          )}
+        </p>
+        <hr />
+        <p> {this.props.post.content}</p>
+        <p> {this.props.post.date}</p>
+      </div>
+    );
+  }
 }
 
 export default Post;

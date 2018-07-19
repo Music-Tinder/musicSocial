@@ -5,121 +5,123 @@ class User extends React.Component {
     super();
 
     this.favouriteHandler = this.favouriteHandler.bind(this);
-    this.chatHandler=this.chatHandler.bind(this)
-    this.closeHandler=this.closeHandler.bind(this);
-    this.messageHandler=this.messageHandler.bind(this);
-    this.submitHandler=this.submitHandler.bind(this);
-    this.subjectHandler=this.subjectHandler.bind(this);
-    this.state={added:[],msgMode:false,message:"",subject:""}
+    this.chatHandler = this.chatHandler.bind(this);
+    this.closeHandler = this.closeHandler.bind(this);
+    this.messageHandler = this.messageHandler.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
+    this.subjectHandler = this.subjectHandler.bind(this);
+    this.state = { added: [], msgMode: false, message: "", subject: "" };
   }
 
   favouriteHandler(event) {
     if (this.props.isLogged) {
       if (this.props.user.id === this.props.selected.id)
-        alert("Who do you think you are...You cannot add yourself to favourites!");
+        alert(
+          "Who do you think you are...You cannot add yourself to favourites!"
+        );
       else if (this.props.selected.favourites.indexOf(this.props.user.id) >= 0)
         alert("again?!!");
-        else{
-          if(this.state.added.indexOf(this.props.user.id)<0){
+      else {
+        if (this.state.added.indexOf(this.props.user.id) < 0) {
+          const self = this;
 
-
-          const self=this;
-
-          let newFav={
-            id:this.props.selected.id-1,
-            favId:this.props.user.id
-          }
-          fetch('/api/addFavourite', {
-            method: 'post',
+          let newFav = {
+            id: this.props.selected.id - 1,
+            favId: this.props.user.id
+          };
+          fetch("/api/addFavourite", {
+            method: "post",
             body: JSON.stringify(newFav),
             headers: {
-              'Content-Type': 'application/json'
+              "Content-Type": "application/json"
             }
-          }).then(function(response) {
-            return response.json();
-          }).then(function(data) {
-            self.setState({added:[...self.state.added,self.props.user.id]})
-          });
-        }
-
-        else
-        alert("you literally just added this one")
-
-        }
-
+          })
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(data) {
+              self.setState({
+                added: [...self.state.added, self.props.user.id]
+              });
+            });
+        } else alert("you literally just added this one");
+      }
     } else alert("log in first pls");
   }
 
-  chatHandler(){
-    if (this.props.isLogged){
+  chatHandler() {
+    if (this.props.isLogged) {
       if (this.props.user.id === this.props.selected.id)
         alert("msging yourself mr lonely?");
-        else{
-          this.setState({msgMode:true})
-        }
-
-    }
-    else
-    alert("log in first pls");
-
+      else {
+        this.setState({ msgMode: true });
+      }
+    } else alert("log in first pls");
   }
 
-  closeHandler(event){
+  closeHandler(event) {
     event.preventDefault();
-    this.setState({msgMode:true})
+    this.setState({ msgMode: true });
   }
 
-  subjectHandler(event){
-    this.setState({subject:event.target.value})
-   
-}
-
-messageHandler(event){
-    this.setState({message:event.target.value})
-}
-
-submitHandler(event){
-  event.preventDefault();
-  
-
-  let date = new Date();
-   let fullDate=`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} at: ${date.getHours()}:${date.getMinutes()}`;
-        
-
-  
-  let sendTo={
-    id: this.props.user.id,
-    name: this.props.user.name+" "+this.props.user.surname,
-    title: this.state.subject,
-    content: this.state.message,
-    date: fullDate
+  subjectHandler(event) {
+    this.setState({ subject: event.target.value });
   }
 
-  let sender={
-    id: this.props.selected.id,
-    name: this.props.selected.name+" "+this.props.selected.surname,
-    title: this.state.subject,
-    content: this.state.message,
-    date: fullDate
+  messageHandler(event) {
+    this.setState({ message: event.target.value });
   }
 
-  const self=this;
-  fetch('/api/msg', {
-    method: 'post',
-    body: JSON.stringify({sendTo:sendTo,sender:sender}),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).then(function(response) {
-    return response.json();
-  }).then(function(data) {
-    
-     
-  });
+  submitHandler(event) {
+    event.preventDefault();
 
+    const self = this;
+    fetch("/api/msg", {
+      method: "post",
+      body: JSON.stringify({ sendTo: sendTo, sender: sender }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {});
 
-  this.setState({message:"",subject:"",msgMode:false})
-}
+    let date = new Date();
+    let fullDate = `${date.getDate()}/${date.getMonth() +
+      1}/${date.getFullYear()} at: ${date.getHours()}:${date.getMinutes()}`;
+
+    let sendTo = {
+      id: this.props.user.id,
+      name: this.props.user.name + " " + this.props.user.surname,
+      title: this.state.subject,
+      content: this.state.message,
+      date: fullDate
+    };
+
+    let sender = {
+      id: this.props.selected.id,
+      name: this.props.selected.name + " " + this.props.selected.surname,
+      title: this.state.subject,
+      content: this.state.message,
+      date: fullDate
+    };
+
+    fetch("/api/msg", {
+      method: "post",
+      body: JSON.stringify({ sendTo: sendTo, sender: sender }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {});
+
+    this.setState({ message: "", subject: "", msgMode: false });
+  }
 
   render() {
     return (
@@ -131,18 +133,20 @@ submitHandler(event){
           <p className="add-to-favourites" onClick={this.favouriteHandler}>
             ➕
           </p>
-          
         </div>
 
         <div>
-        <button onClick={this.chatHandler}> msg </button>
-        <form className={this.state.msgMode ? "" : "hidden"}>
-          <button onClick={this.closeHandler}> X </button> <br/>
-          <label>subject</label> <input onChange={this.subjectHandler} value={this.state.subject} /> <br/>
-          <label>content</label> <input onChange={this.messageHandler}  value={this.state.message}  /> <br/>
-          <button onClick={this.submitHandler}> send </button>
+          <form className={this.state.msgMode ? "" : "hidden"}>
+            <button onClick={this.closeHandler}> X </button> <br />
+            <label>subject</label>{" "}
+            <input onChange={this.subjectHandler} value={this.state.subject} />{" "}
+            <br />
+            <label>content</label>{" "}
+            <input onChange={this.messageHandler} value={this.state.message} />{" "}
+            <br />
+            <button onClick={this.submitHandler}> send </button>
           </form>
-          </div>
+        </div>
 
         <img className="user__image" src={this.props.user.image} />
 
@@ -207,6 +211,9 @@ submitHandler(event){
           >
             <img className="icon" src="../static/assets/youtube.png" />
           </a>
+          <button className="msg-button" onClick={this.chatHandler}>
+            ✉️
+          </button>
         </div>
       </div>
     );
