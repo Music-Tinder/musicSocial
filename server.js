@@ -33,8 +33,6 @@ app.post('/api/addFavourite', function(req,res){
 app.post('/api/msg', function(req,res){
  data.users[req.body.sendTo.id-1].inbox.push(req.body.sender)
  data.users[req.body.sender.id-1].sent.push(req.body.sendTo)
-
-
  res.json({msg:"done"})
 });
 

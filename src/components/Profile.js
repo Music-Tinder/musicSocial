@@ -33,7 +33,7 @@ class Profile extends React.Component {
 
                     </select>
                    
-                    <EditProfile isSelected={this.state.isSelected} profile={this.props.selected}
+                    <EditProfile isSelected={this.props.isLogged} profile={this.props.selected}
                      profiles={this.props.musicians} isLogged={this.props.isLogged} />
 
               </div>

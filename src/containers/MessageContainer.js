@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import Messages from '../components/Messages';
-import { fetchUsers } from "../actions"
+import { fetchUsers,selectUser } from "../actions"
 
 const mapStateToProps = state => {
 
@@ -15,9 +15,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     dispatch(fetchUsers());
+ 
 
     return {
         getMusicians : () => dispatch(fetchUsers()),
+        selectMusician : (user) => dispatch(selectUser(user))
 
     }
 }
