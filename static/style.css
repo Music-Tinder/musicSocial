@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 
-.hidden{
-  display:none;
+.hidden {
+  display: none;
 }
 
 html,
@@ -50,24 +50,22 @@ h1 {
   list-style-type: none;
   font-size: 16px;
   margin: 0 15px;
-}
-
-.header__nav,
-a:link {
   color: #dcded8;
-  text-decoration: none;
 }
 
-.header__nav,
-a:hover {
-  color: #68b95c;
-  text-decoration: underline;
+.header__nav a {
+  text-decoration: none;
 }
 
 .header__nav,
 a:visited {
   color: #dcded8;
   text-decoration: none;
+}
+
+.header__nav a:hover {
+  color: #68b95c;
+  text-decoration: underline;
 }
 
 .menu {
@@ -87,8 +85,6 @@ a:visited {
 /* USER CARDS */
 
 .user {
-  --border: 96vw;
-
   border: 0;
   box-shadow: 3px 3px 10px 3px #dcded8;
 
@@ -97,8 +93,19 @@ a:visited {
   margin-top: 20px;
   padding: 10px;
   background: #262e26;
-  width: var(--border);
-  height: var(--border);
+  width: 90vw;
+}
+
+.msg-button {
+  background: none;
+  text-align: center;
+  border: none;
+  color: #dcded8;
+  font-size: 30px;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 10%;
+  width: 30px;
 }
 
 .user__title {
@@ -115,6 +122,7 @@ a:visited {
   color: transparent;
   text-shadow: 0 0 0 #dcded8;
   margin: 0;
+  font-size: 24px;
 }
 
 .user__image {
@@ -154,7 +162,7 @@ user__info__2 {
   flex-direction: row;
   justify-content: space-evenly;
 
-  position: fixed;
+  position: sticky;
   bottom: 0;
 
   background: #141716;
@@ -162,6 +170,21 @@ user__info__2 {
   width: 100%;
   padding: 10px;
   text-align: center;
+  color: #dcded8;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:visited {
+  color: #dcded8;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #68b95c;
+  text-decoration: underline;
 }
 
 /* TABLETS */
@@ -178,6 +201,10 @@ user__info__2 {
   .user {
     width: 700px;
     height: 700px;
+  }
+
+  .msg-button {
+    font-size: 60px;
   }
 
   .soundcloud {
