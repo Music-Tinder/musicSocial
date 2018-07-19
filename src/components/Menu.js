@@ -4,6 +4,7 @@ import UsersContainer from "../containers/UsersContainer";
 import Others from "../components/Others";
 import ProfileContainer from "../containers/ProfileContainer";
 import PostContainer from "../containers/PostContainer"
+import MessageContainer from "../containers/MessageContainer";
 
 class Menu extends React.Component {
 
@@ -27,6 +28,7 @@ class Menu extends React.Component {
           <Route path="/other" component={Others} />
           <Route path="/create" component={PostContainer} />
           <Route path="/profile" component={ProfileContainer} />
+          <Route path="/inbox" component={MessageContainer} />
         </Switch>
       </div>
     );

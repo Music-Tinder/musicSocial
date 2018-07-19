@@ -111,6 +111,7 @@ a:visited {
 }
 
 .add-to-favourites {
+  cursor: pointer;
   color: transparent;
   text-shadow: 0 0 0 #dcded8;
   margin: 0;

@@ -10,6 +10,9 @@ function Header() {
       <p>
         <Link to="/create">CREATE POST</Link>
       </p>
+      <p>
+        <Link to="/inbox">INBOX</Link>
+      </p>
     </footer>
   );
 }

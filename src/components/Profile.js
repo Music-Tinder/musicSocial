@@ -12,7 +12,6 @@ class Profile extends React.Component {
     changeHandler(event){
        
         let tempObj= this.props.musicians[event.target.value-1]
-        // this.setState({selectedPofile:tempObj})
         this.props.selectMusician(tempObj);
         this.props.logIn(true);
         this.setState({isSelected:true})
