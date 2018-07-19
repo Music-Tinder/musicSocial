@@ -6,12 +6,19 @@ class Message extends React.Component {
   }
   render() {
     return (
-      <div>
-        <p> Msg#{this.props.index + 1}</p>
-        <p> To/From:-{this.props.msg.name}</p>
-        <p> Date:-{this.props.msg.date}</p>
-        <p> Title:-{this.props.msg.title}</p>
-        <p> Content:-{this.props.msg.content}</p>
+      <div className="inbox__message">
+        <p>
+          <strong>From:</strong> {this.props.msg.name}
+        </p>
+        <p>
+          <strong>Date:</strong> {this.props.msg.date}
+        </p>
+        <p>
+          <strong>Title:</strong>
+          <em> {this.props.msg.title}</em>
+        </p>
+        <hr />
+        <p>{this.props.msg.content}</p>
       </div>
     );
   }

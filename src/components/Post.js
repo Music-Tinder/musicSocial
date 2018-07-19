@@ -7,7 +7,6 @@ class Post extends React.Component {
   render() {
     return (
       <div className="message-board__notices">
-        {/* <p> #{this.props.index + 1}</p> */}
         <p>
           <strong>{this.props.post.name}</strong> -{" "}
           {this.props.post.title === "" ? (
