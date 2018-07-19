@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header className="header">
-      <img className="header__logo" src="../static/assets/logo.png" />
       <h1>BANDIFY</h1>
+
       <div className="header__nav">
         <p>
-          <Link to="/home">HOME</Link>
+          <Link to="/">HOME</Link>
         </p>
         <p>
           <Link to="/all">ALL</Link>

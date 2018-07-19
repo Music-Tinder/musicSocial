@@ -28,9 +28,3 @@ export function logIn(status) {
     status
   };
 }
-
-export function loadVideo() {
-  return {
-    type: "LOAD_HOME_PAGE_VIDEO"
-  };
-}

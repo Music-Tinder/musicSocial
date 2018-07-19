@@ -1,15 +1,14 @@
 import { connect } from "react-redux";
 
 import Users from "../components/Users";
-import { fetchUsers, loadVideo } from "../actions";
+import { fetchUsers } from "../actions";
 
 const mapStateToProps = (state, ownProps) => {
   return {
     musicians: state.users,
     instrument: ownProps.instrument,
     selected: state.select,
-    isLogged: state.isLogged,
-    loadVideo: state.loadVideo
+    isLogged: state.isLogged
   };
 };
 

@@ -3,16 +3,14 @@ import { Switch, Route } from "react-router-dom";
 import UsersContainer from "../containers/UsersContainer";
 import Others from "../components/Others";
 import ProfileContainer from "../containers/ProfileContainer";
+import HomePage from "../components/HomePage";
 
 class Menu extends React.Component {
   render() {
     return (
       <div className="menu">
         <Switch>
-          <Route
-            path="/home"
-            render={() => <UsersContainer loadVideo="Home" />}
-          />
+          <Route exact path="/" render={() => <HomePage />} />
           <Route path="/all" render={() => <UsersContainer />} />
           <Route
             path="/guitar"
