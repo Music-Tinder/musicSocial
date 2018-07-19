@@ -7,11 +7,11 @@ class Message extends React.Component {
   render() {
     return (
       <div>
-        <p> #{this.props.index + 1}</p>
-        <p> From: {this.props.msg.name}</p>
-        <p> Date: {this.props.msg.date}</p>
-        <p> Subject: {this.props.msg.title}</p>
-        <p> Message: {this.props.msg.content}</p>
+        <p> Msg#{this.props.index + 1}</p>
+        <p> To/From:-{this.props.msg.name}</p>
+        <p> Date:-{this.props.msg.date}</p>
+        <p> Title:-{this.props.msg.title}</p>
+        <p> Content:-{this.props.msg.content}</p>
       </div>
     );
   }
