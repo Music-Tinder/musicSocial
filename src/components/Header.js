@@ -7,6 +7,9 @@ function Header() {
       <h1> BANDIFY </h1>
       <div className="header__nav">
         <p>
+          <Link to="/">HOME</Link>
+        </p>
+        <p>
           <Link to="/all">ALL</Link>
         </p>
         <p>
