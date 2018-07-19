@@ -5,7 +5,7 @@ function Header() {
   return (
     <footer className="footer">
       <p>
-        <Link to="/profile">PROFILE</Link>
+        <Link to="/profile">SIGN IN</Link>
       </p>
       <p>
         <Link to="/create">CREATE POST</Link>

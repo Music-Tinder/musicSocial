@@ -6,6 +6,7 @@ class Profile extends React.Component {
     super();
     this.state = { selectedPofile: {}, isSelected: false };
     this.changeHandler = this.changeHandler.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   changeHandler(event) {
@@ -17,20 +18,30 @@ class Profile extends React.Component {
     }
   }
 
+  clickHandler(event){
+    event.preventDefault()
+    let tempObj = this.props.musicians[event.target.id - 1];
+    this.props.selectMusician(tempObj);
+    this.props.logIn(true);
+    this.setState({ isSelected: true });
+  }
+
+
   render() {
     return (
-      <div className="users">
-        <select onChange={this.changeHandler}>
-          <option value="-1">Select user below </option>
+      <div>
+      <div className="dropdown">
+        <button className="dropbtn">Sign In As...</button>
+              <div className="dropdown-content">
           {this.props.musicians.map(musician => {
             return (
-              <option value={musician.id} key={musician.id}>
-                {" "}
-                {musician.name}{" "}
-              </option>
+              <a href="#" onClick={this.clickHandler} id={musician.id} key={musician.id}>
+                {musician.name}
+              </a>
             );
           })}
-        </select>
+          </div>
+          </div>
 
         <EditProfile
           isSelected={this.props.isLogged}
@@ -38,6 +49,7 @@ class Profile extends React.Component {
           profiles={this.props.musicians}
           isLogged={this.props.isLogged}
         />
+      
       </div>
     );
   }

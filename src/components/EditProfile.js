@@ -7,7 +7,7 @@ class EditProfile extends React.Component {
   }
 
   render() {
-    if (!this.props.isSelected) return <p> Please select a profile </p>;
+    if (!this.props.isSelected) return <p></p>;
 
     return (
       <div className="users">

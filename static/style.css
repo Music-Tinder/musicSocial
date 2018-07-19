@@ -45,16 +45,25 @@ HEADER */
   background: #141716;
 }
 
-.header,
-h1 {
-  font-size: 24px;
+.header h1 {
+  font-size: 28px;
   padding: 0;
-  margin: 0;
+  margin: 5px;
 }
 
-.header__logo {
-  width: 130px;
-  height: 80;
+.header__nav p {
+  background-image: linear-gradient(90deg, #68b95c 0%, #141716 100%);
+  background-repeat: no-repeat;
+  background-size: 0%;
+  transition: background-size 0.15s ease-in;
+}
+
+.header__nav p:hover {
+  background-size: 100%;
+}
+
+.logo__picture {
+  width: 260px;
   padding: 0;
   margin: 0;
 }
@@ -65,7 +74,7 @@ h1 {
   justify-content: space-evenly;
 
   list-style-type: none;
-  font-size: 16px;
+  font-size: 12px;
   margin: 0 15px;
   color: #dcded8;
 }
@@ -78,11 +87,6 @@ h1 {
 a:visited {
   color: #dcded8;
   text-decoration: none;
-}
-
-.header__nav a:hover {
-  color: #68b95c;
-  text-decoration: underline;
 }
 
 .menu {
@@ -191,6 +195,10 @@ user__info__2 {
 }
 
 .footer a {
+  background-image: linear-gradient(90deg, #68b95c 0%, #141716 100%);
+  background-repeat: no-repeat;
+  background-size: 0%;
+  transition: background-size 0.15s ease-in;
   text-decoration: none;
 }
 
@@ -200,8 +208,7 @@ user__info__2 {
 }
 
 .footer a:hover {
-  color: #68b95c;
-  text-decoration: underline;
+  background-size: 100%;
 }
 
 /* PROFILES */
@@ -293,6 +300,10 @@ user__info__2 {
     font-size: 22px;
   }
 
+  .logo__picture {
+    width: 660px;
+  }
+
   .user {
     width: 700px;
   }
@@ -338,4 +349,54 @@ user__info__2 {
   .footer {
     font-size: 22px;
   }
+}
+
+/* Drop down menu code*/
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  
+  position: fixed;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+ 
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
 }
