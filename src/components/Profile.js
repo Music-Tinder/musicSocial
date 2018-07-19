@@ -48,6 +48,7 @@ class Profile extends React.Component {
           profile={this.props.selected}
           profiles={this.props.musicians}
           isLogged={this.props.isLogged}
+          selectMusician={this.props.selectMusician}
         />
       
       </div>
