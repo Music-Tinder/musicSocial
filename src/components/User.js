@@ -75,8 +75,6 @@ class User extends React.Component {
   submitHandler(event) {
     event.preventDefault();
 
-   
-
     let date = new Date();
     let fullDate = `${date.getDate()}/${date.getMonth() +
       1}/${date.getFullYear()} at: ${date.getHours()}:${date.getMinutes()}`;
@@ -97,7 +95,7 @@ class User extends React.Component {
       date: fullDate
     };
 
-   const self=this;
+    const self = this;
 
     fetch("/api/msg", {
       method: "post",
@@ -128,7 +126,6 @@ class User extends React.Component {
             ➕
           </p>
         </div>
-
 
         <img className="user__image" src={this.props.user.image} />
 
@@ -161,16 +158,27 @@ class User extends React.Component {
             }&color=%68b95c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`}
           />
         </div>
-          <form className={this.state.msgMode ? "" : "hidden"}>
-        <div className="message-box">
-            <input className="message-box__subject-field" onChange={this.subjectHandler} value={this.state.subject} placeholder="Subject" />{" "}
+        <form className={this.state.msgMode ? "" : "hidden"}>
+          <div className="message-box">
+            <input
+              className="message-box__subject-field"
+              onChange={this.subjectHandler}
+              value={this.state.subject}
+              placeholder="Subject"
+            />{" "}
             <br />
-            <input className="message-box__content-field" onChange={this.messageHandler} placeholder="Message" value={this.state.message} />{" "}
+            <input
+              className="message-box__content-field"
+              onChange={this.messageHandler}
+              placeholder="Message"
+              value={this.state.message}
+            />{" "}
             <br />
             <button onClick={this.submitHandler}> send </button>
             <button onClick={this.closeHandler}> 🗑 </button> <br />
-        </div>
-          </form>
+          </div>
+        </form>
+
         <div className="user__socials">
           <a
             href={`https://www.instagram.com/${
