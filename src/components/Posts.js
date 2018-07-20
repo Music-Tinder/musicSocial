@@ -9,6 +9,9 @@ class Posts extends React.Component {
     this.state = { wallPosts: [] };
     this.update = this.update.bind(this);
   }
+  componentDidMount() {
+    this.props.getMusicians();
+  }
 
   update(data) {
     this.setState({ wallPosts: data });
