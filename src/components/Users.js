@@ -1,10 +1,11 @@
 import React from "react";
-import User from '../components/User';
+import User from "../components/User";
 
 class Users extends React.Component {
+  componentDidMount() {
+    this.props.getMusicians();
+  }
   render() {
-    
-
     let filteredArray = [];
     if (this.props.instrument) {
       filteredArray = this.props.musicians.filter(user => {
@@ -12,13 +13,17 @@ class Users extends React.Component {
       });
     } else filteredArray = this.props.musicians;
 
-
     return (
       <div className="users">
         {filteredArray.map(user => {
           return (
-            <User key={user.id} user={user} selected={this.props.selected} 
-            isLogged={this.props.isLogged} selectMusician={this.props.selectMusician}  />
+            <User
+              key={user.id}
+              user={user}
+              selected={this.props.selected}
+              isLogged={this.props.isLogged}
+              selectMusician={this.props.selectMusician}
+            />
           );
         })}
       </div>

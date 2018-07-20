@@ -12,7 +12,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => {
-  dispatch(fetchUsers());
   return {
     getMusicians: () => dispatch(fetchUsers()),
     selectMusician: user => dispatch(selectUser(user))

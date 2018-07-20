@@ -2,6 +2,9 @@ import React from "react";
 
 import Message from "../components/Message";
 class Messages extends React.Component {
+  componentDidMount() {
+    this.props.getMusicians();
+  }
   render() {
     if (!this.props.isLogged) return <p> log in to view msgs </p>;
 
