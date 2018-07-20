@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-.hidden {
-  display: none;
-}
-
 html,
 body {
   height: 100%;
@@ -20,6 +16,14 @@ body {
   background-size: auto;
   font-family: "Montserrat", sans-serif;
   color: #dcded8;
+}
+
+a {
+  color: inherit;
+}
+
+.hidden {
+  display: none;
 }
 
 .logo {
@@ -326,7 +330,7 @@ user__info__2 {
   font-family: "Montserrat", sans-serif;
   font-size: 10px;
   cursor: pointer;
-  margin: 0 50px;
+  margin: 0 20px;
 }
 
 /* TABLETS */
