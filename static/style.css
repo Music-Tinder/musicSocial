@@ -321,8 +321,9 @@ user__info__2 {
 
   width: 100vw;
   height: 30px;
-  background: #141716;
+  background: #242927;
   text-align: center;
+  padding-top: 10px;
 }
 
 .other-components p {
