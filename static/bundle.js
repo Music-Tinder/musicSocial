@@ -27372,8 +27372,6 @@ var NewPost = function (_React$Component) {
         date: fullDate
       };
 
-      var self = this;
-
       fetch("/api/addWallPost", {
         method: "post",
         body: JSON.stringify(newPost),
@@ -27383,7 +27381,7 @@ var NewPost = function (_React$Component) {
       }).then(function (response) {
         return response.json();
       }).then(function (data) {
-        self.props.update(data.posts);
+        return self.props.update(data.posts);
       });
 
       this.setState({ subject: "", message: "" });
@@ -27657,7 +27655,7 @@ var Posts = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Posts.__proto__ || Object.getPrototypeOf(Posts)).call(this));
 
-    _this.state = { wallPosts: [] };
+    _this.state = { wallPosts: {} };
     _this.update = _this.update.bind(_this);
     return _this;
   }
@@ -27686,6 +27684,8 @@ var Posts = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       return _react2.default.createElement(
         "div",
         { className: "message-board" },
@@ -27694,8 +27694,8 @@ var Posts = function (_React$Component) {
           isLogged: this.props.isLogged,
           update: this.update
         }),
-        this.state.wallPosts.map(function (post, index) {
-          return _react2.default.createElement(_Post2.default, { key: index, post: post, index: index });
+        Object.keys(this.state.wallPosts).map(function (key, index) {
+          return _react2.default.createElement(_Post2.default, { key: index, post: _this3.state.wallPosts[key], index: index });
         })
       );
     }
@@ -28318,7 +28318,6 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  // dispatch(fetchUsers());
 
   return {
     getMusicians: function getMusicians() {

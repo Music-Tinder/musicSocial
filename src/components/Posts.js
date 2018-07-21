@@ -6,7 +6,7 @@ class Posts extends React.Component {
   constructor() {
     super();
 
-    this.state = { wallPosts: [] };
+    this.state = { wallPosts: {} };
     this.update = this.update.bind(this);
   }
   componentDidMount() {
@@ -33,8 +33,8 @@ class Posts extends React.Component {
           update={this.update}
         />
 
-        {this.state.wallPosts.map((post, index) => {
-          return <Post key={index} post={post} index={index} />;
+        {Object.keys(this.state.wallPosts).map((key,index) => {
+          return <Post key={index} post={this.state.wallPosts[key]} index={index} />;
         })}
       </div>
     );

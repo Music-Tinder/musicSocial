@@ -1,7 +1,8 @@
-module.exports = [{
-    id: 1,
+module.exports = {
+  Post1:{  id: 1,
     name: "Ollie Crook",
     title: "test",
     content: "Anything",
     date: "18/7/2018 at: 19:52"
-}]
+  }
+}

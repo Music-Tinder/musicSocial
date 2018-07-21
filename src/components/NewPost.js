@@ -31,7 +31,6 @@ class NewPost extends React.Component {
       date: fullDate
     };
 
-    const self = this;
 
     fetch("/api/addWallPost", {
       method: "post",
@@ -43,9 +42,7 @@ class NewPost extends React.Component {
       .then(function(response) {
         return response.json();
       })
-      .then(function(data) {
-        self.props.update(data.posts);
-      });
+      .then(data => self.props.update(data.posts))
 
     this.setState({ subject: "", message: "" });
   }

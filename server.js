@@ -7,6 +7,10 @@ app.use("/static", express.static("static"));
 app.use(bodyParser.json());
 app.set("view engine", "hbs");
 
+let wallPostsId=2;
+let usersId=11;
+
+
 const data = {
   locations: require("./data/locations"),
   users: require("./data/users"),
@@ -26,8 +30,11 @@ app.get("/api/user/:id", function(req, res) {
 });
 
 app.post("/api/addWallPost", function(req, res) {
-  data.wallPosts.unshift(req.body);
-  res.json({ posts: data.wallPosts });
+  id=`Post${wallPostsId}`
+  newPost= {[id]:req.body}
+  wallPostsId++
+  data.wallPosts=Object.assign({},data.wallPosts,newPost)
+  res.json(newPost);
 });
 
 
