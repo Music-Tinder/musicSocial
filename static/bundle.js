@@ -26753,7 +26753,11 @@ var EditProfile = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      if (!this.props.isSelected) return _react2.default.createElement("p", null);
+      if (!this.props.isLogged) return _react2.default.createElement(
+        "p",
+        null,
+        " please log in"
+      );
 
       return _react2.default.createElement(
         "div",
@@ -26784,7 +26788,8 @@ var EditProfile = function (_React$Component) {
               user: _this2.props.profiles[id],
               selected: _this2.props.profile,
               isLogged: _this2.props.isLogged,
-              selectMusician: _this2.props.selectMusician
+              selectMusician: _this2.props.selectMusician,
+              updateSelectedUser: _this2.props.updateSelectedUser
             })
           );
         })
@@ -27263,7 +27268,7 @@ var Messages = function (_React$Component) {
   _createClass(Messages, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.getMusicians("all");
+      this.props.selectMusician(this.props.selected);
     }
   }, {
     key: "render",
@@ -27663,11 +27668,6 @@ var Posts = function (_React$Component) {
   }
 
   _createClass(Posts, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.getMusicians("all");
-    }
-  }, {
     key: "update",
     value: function update(data) {
       this.setState({ wallPosts: data });
@@ -27801,11 +27801,11 @@ var Profile = function (_React$Component) {
           )
         ),
         _react2.default.createElement(_EditProfile2.default, {
-          isSelected: this.props.isLogged,
           profile: this.props.selected,
           profiles: this.props.musicians,
           isLogged: this.props.isLogged,
-          selectMusician: this.props.selectMusician
+          selectMusician: this.props.selectMusician,
+          updateSelectedUser: this.props.updateSelectedUser
         })
       );
     }
@@ -27840,8 +27840,6 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -27862,36 +27860,38 @@ var User = function (_React$Component) {
     _this.messageHandler = _this.messageHandler.bind(_this);
     _this.submitHandler = _this.submitHandler.bind(_this);
     _this.subjectHandler = _this.subjectHandler.bind(_this);
-    _this.state = { added: [], msgMode: false, message: "", subject: "" };
+    _this.state = { msgMode: false, message: "", subject: "" };
     return _this;
   }
 
   _createClass(User, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
     key: "favouriteHandler",
-    value: function favouriteHandler(event) {
+    value: function favouriteHandler() {
       if (this.props.isLogged) {
         if (this.props.user.id === this.props.selected.id) alert("Who do you think you are...You cannot add yourself to favourites!");else if (this.props.selected.favourites.indexOf(this.props.user.id) >= 0) alert("again?!!");else {
-          if (this.state.added.indexOf(this.props.user.id) < 0) {
-            var self = this;
 
-            var newFav = {
-              id: this.props.selected.id - 1,
-              favId: this.props.user.id
-            };
-            fetch("/api/addFavourite", {
-              method: "post",
-              body: JSON.stringify(newFav),
-              headers: {
-                "Content-Type": "application/json"
-              }
-            }).then(function (response) {
-              return response.json();
-            }).then(function (data) {
-              self.setState({
-                added: [].concat(_toConsumableArray(self.state.added), [self.props.user.id])
-              });
-            });
-          } else alert("you literally just added this one");
+          var self = this;
+
+          var newFav = {
+            id: this.props.selected.id,
+            favId: this.props.user.id
+          };
+
+          fetch("/api/addFavourite", {
+            method: "post",
+            body: JSON.stringify(newFav),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }).then(function (response) {
+            return response.json();
+          }).then(function (data) {
+            self.props.selectMusician(data);
+            console.log("after post", data);
+          });
         }
       } else alert("log in first pls");
     }
@@ -28209,7 +28209,8 @@ var Users = function (_React$Component) {
             user: _this2.props.musicians[user],
             selected: _this2.props.selected,
             isLogged: _this2.props.isLogged,
-            selectMusician: _this2.props.selectMusician
+            selectMusician: _this2.props.selectMusician,
+            updateSelectedUser: _this2.props.updateSelectedUser
           });
         })
       );
@@ -28257,8 +28258,8 @@ var mapStateToProps = function mapStateToProps(state) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    getMusicians: function getMusicians(instrument) {
-      return dispatch((0, _actions.fetchUsers)(instrument));
+    selectMusician: function selectMusician(user) {
+      return dispatch((0, _actions.selectUser)(user));
     }
   };
 };
@@ -28287,8 +28288,6 @@ var _Posts = __webpack_require__(/*! ../components/Posts */ "./src/components/Po
 
 var _Posts2 = _interopRequireDefault(_Posts);
 
-var _actions = __webpack_require__(/*! ../actions */ "./src/actions/index.js");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -28299,15 +28298,7 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    getMusicians: function getMusicians() {
-      return dispatch((0, _actions.fetchUsers)());
-    }
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Posts2.default);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(_Posts2.default);
 
 /***/ }),
 
@@ -28398,6 +28389,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     getMusicians: function getMusicians(instrument) {
       return dispatch((0, _actions.fetchUsers)(instrument));
+    },
+    selectMusician: function selectMusician(user) {
+      return dispatch((0, _actions.selectUser)(user));
     }
   };
 };

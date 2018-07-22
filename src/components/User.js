@@ -10,25 +10,31 @@ class User extends React.Component {
     this.messageHandler = this.messageHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
     this.subjectHandler = this.subjectHandler.bind(this);
-    this.state = { added: [], msgMode: false, message: "", subject: "" };
+    this.state = {msgMode: false, message: "", subject: "" };
   }
 
-  favouriteHandler(event) {
+  componentDidMount(){
+    
+  }
+
+
+
+  favouriteHandler() {
     if (this.props.isLogged) {
       if (this.props.user.id === this.props.selected.id)
-        alert(
-          "Who do you think you are...You cannot add yourself to favourites!"
-        );
+        alert("Who do you think you are...You cannot add yourself to favourites!");
       else if (this.props.selected.favourites.indexOf(this.props.user.id) >= 0)
         alert("again?!!");
       else {
-        if (this.state.added.indexOf(this.props.user.id) < 0) {
+       
           const self = this;
 
           let newFav = {
-            id: this.props.selected.id - 1,
+            id: this.props.selected.id,
             favId: this.props.user.id
           };
+          
+
           fetch("/api/addFavourite", {
             method: "post",
             body: JSON.stringify(newFav),
@@ -39,14 +45,14 @@ class User extends React.Component {
             .then(function(response) {
               return response.json();
             })
-            .then(function(data) {
-              self.setState({
-                added: [...self.state.added, self.props.user.id]
-              });
+            .then(data=> {
+              self.props.selectMusician(data)
+              console.log("after post",data);
             });
-        } else alert("you literally just added this one");
+        
       }
-    } else alert("log in first pls");
+    } else
+     alert("log in first pls");
   }
 
   chatHandler() {

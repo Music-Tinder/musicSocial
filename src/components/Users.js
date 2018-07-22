@@ -12,8 +12,6 @@ class Users extends React.Component {
     
   }
 
-
-
   render() {
     
 
@@ -27,6 +25,7 @@ class Users extends React.Component {
               selected={this.props.selected}
               isLogged={this.props.isLogged}
               selectMusician={this.props.selectMusician}
+              updateSelectedUser={this.props.updateSelectedUser}
             />
           );
         })}

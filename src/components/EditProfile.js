@@ -7,7 +7,7 @@ class EditProfile extends React.Component {
   }
 
   render() {
-    if (!this.props.isSelected) return <p></p>;
+    if (!this.props.isLogged) return <p> please log in</p>;
 
     return (
       <div className="users">
@@ -27,6 +27,7 @@ class EditProfile extends React.Component {
                 selected={this.props.profile}
                 isLogged={this.props.isLogged}
                 selectMusician={this.props.selectMusician}
+                updateSelectedUser={this.props.updateSelectedUser}
               />
             </div>
           );

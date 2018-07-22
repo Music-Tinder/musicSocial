@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 
 import Posts from "../components/Posts";
-import { fetchUsers } from "../actions";
 
 const mapStateToProps = state => {
   return {
@@ -11,13 +10,8 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getMusicians: () => dispatch(fetchUsers())
-  };
-};
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(Posts);

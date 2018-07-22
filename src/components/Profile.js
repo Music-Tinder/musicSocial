@@ -41,11 +41,11 @@ class Profile extends React.Component {
         </div>
 
         <EditProfile
-          isSelected={this.props.isLogged}
           profile={this.props.selected}
           profiles={this.props.musicians}
           isLogged={this.props.isLogged}
           selectMusician={this.props.selectMusician}
+          updateSelectedUser={this.props.updateSelectedUser}
         />
       </div>
     );

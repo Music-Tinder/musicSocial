@@ -59,13 +59,13 @@ app.post("/api/addWallPost", function(req, res) {
 
 app.post("/api/addFavourite", function(req, res) {
   data.users[req.body.id].favourites.push(req.body.favId);
-  res.json({ users: data.users });
+  res.json(data.users[req.body.id]);
 });
 
 app.post("/api/msg", function(req, res) {
-  data.users[req.body.sendTo.id - 1].inbox.unshift(req.body.sender);
-  data.users[req.body.sender.id - 1].sent.unshift(req.body.sendTo);
-  res.json(data.users[req.body.sender.id - 1]);
+  data.users[req.body.sendTo.id].inbox.unshift(req.body.sender);
+  data.users[req.body.sender.id].sent.unshift(req.body.sendTo);
+  res.json(data.users[req.body.sender.id]);
 });
 
 app.get("*", function(req, res) {
