@@ -26593,9 +26593,9 @@ exports.fetchUsers = fetchUsers;
 exports.storeUsers = storeUsers;
 exports.selectUser = selectUser;
 exports.logIn = logIn;
-function fetchUsers() {
+function fetchUsers(instrument) {
   return function (dispatch) {
-    return fetch("/api/users/").then(function (response) {
+    return fetch("/api/users/" + instrument).then(function (response) {
       return response.json();
     }).then(function (json) {
       dispatch(storeUsers(json));
@@ -27086,7 +27086,7 @@ var Menu = function (_React$Component) {
               return _react2.default.createElement(_HomePage2.default, null);
             } }),
           _react2.default.createElement(_reactRouterDom.Route, { path: "/all", render: function render() {
-              return _react2.default.createElement(_UsersContainer2.default, null);
+              return _react2.default.createElement(_UsersContainer2.default, { instrument: "all" });
             } }),
           _react2.default.createElement(_reactRouterDom.Route, {
             path: "/guitar",
@@ -28199,27 +28199,25 @@ var Users = function (_React$Component) {
   _createClass(Users, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.getMusicians();
+      this.props.getMusicians(this.props.instrument);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.instrument != prevProps.instrument) this.props.getMusicians(this.props.instrument);
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var filteredArray = [];
-      if (this.props.instrument) {
-        filteredArray = this.props.musicians.filter(function (user) {
-          return user.instruments.indexOf(_this2.props.instrument) > -1;
-        });
-      } else filteredArray = this.props.musicians;
-
       return _react2.default.createElement(
         "div",
         { className: "users" },
-        filteredArray.map(function (user) {
+        Object.keys(this.props.musicians).map(function (user) {
           return _react2.default.createElement(_User2.default, {
-            key: user.id,
-            user: user,
+            key: _this2.props.musicians[user].id,
+            user: _this2.props.musicians[user],
             selected: _this2.props.selected,
             isLogged: _this2.props.isLogged,
             selectMusician: _this2.props.selectMusician
@@ -28415,8 +28413,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    getMusicians: function getMusicians() {
-      return dispatch((0, _actions.fetchUsers)());
+    getMusicians: function getMusicians(instrument) {
+      return dispatch((0, _actions.fetchUsers)(instrument));
     },
     selectMusician: function selectMusician(user) {
       return dispatch((0, _actions.selectUser)(user));
@@ -28593,15 +28591,14 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 function users() {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var action = arguments[1];
 
 
     switch (action.type) {
         case "LOAD_USERS":
 
-            var newState = JSON.parse(JSON.stringify(action.users));
-            return newState;
+            return action.users;
 
         default:
             return state;

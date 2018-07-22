@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getMusicians: () => dispatch(fetchUsers()),
+    getMusicians: (instrument) => dispatch(fetchUsers(instrument)),
     selectMusician: user => dispatch(selectUser(user))
   };
 };

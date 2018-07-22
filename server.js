@@ -17,9 +17,24 @@ const data = {
   wallPosts: require("./data/wallPosts")
 };
 
-app.get("/api/users", function(req, res) {
-  res.json(data.users);
-});
+app.get("/api/users/:instrument", function(req, res) {
+  
+  if(req.params.instrument==="all")
+    res.json(data.users);
+  else{
+    let filterred={};
+    for (let user in data.users){
+      if(data.users[user].instruments.indexOf(req.params.instrument)>-1 )
+      filterred[user]=data.users[user]
+      }
+      
+    res.json(filterred);
+    }
+    
+
+  });
+  
+
 
 app.get("/api/wallPosts", function(req, res) {
   res.json(data.wallPosts);

@@ -13,7 +13,7 @@ class Menu extends React.Component {
       <div className="menu">
         <Switch>
           <Route exact path="/" render={() => <HomePage />} />
-          <Route path="/all" render={() => <UsersContainer />} />
+          <Route path="/all" render={() => <UsersContainer instrument="all"/>} />
           <Route
             path="/guitar"
             render={() => <UsersContainer instrument="Guitar" />}

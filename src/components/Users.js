@@ -3,23 +3,27 @@ import User from "../components/User";
 
 class Users extends React.Component {
   componentDidMount() {
-    this.props.getMusicians();
+    this.props.getMusicians(this.props.instrument);
   }
+
+  componentDidUpdate(prevProps){
+    if(this.props.instrument!=prevProps.instrument)
+      this.props.getMusicians(this.props.instrument);
+    
+  }
+
+
+
   render() {
-    let filteredArray = [];
-    if (this.props.instrument) {
-      filteredArray = this.props.musicians.filter(user => {
-        return user.instruments.indexOf(this.props.instrument) > -1;
-      });
-    } else filteredArray = this.props.musicians;
+    
 
     return (
       <div className="users">
-        {filteredArray.map(user => {
+        {Object.keys(this.props.musicians).map(user => {
           return (
             <User
-              key={user.id}
-              user={user}
+              key={this.props.musicians[user].id}
+              user={this.props.musicians[user]}
               selected={this.props.selected}
               isLogged={this.props.isLogged}
               selectMusician={this.props.selectMusician}

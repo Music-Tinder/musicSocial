@@ -1,6 +1,6 @@
-export function fetchUsers() {
+export function fetchUsers(instrument) {
   return function(dispatch) {
-    return fetch(`/api/users/`)
+    return fetch(`/api/users/${instrument}`)
       .then(response => response.json())
       .then(json => {
         dispatch(storeUsers(json));

@@ -1,5 +1,5 @@
-module.exports = [
-  {
+module.exports = {
+1:  {
     id: 1,
     name: "Ollie",
     surname: "Crook",
@@ -27,19 +27,19 @@ module.exports = [
   }],
     sent:[]
   },
-  {
+ 2: {
     id: 2,
     name: "Ahmed",
-    surname: "Pigeons",
+    surname: "Ahmed",
     image:
-      "http://1000logos.net/wp-content/uploads/2017/03/Nestle-Logo.png",
-    locationIds: "The Roof",
+      "https://www.computerhope.com/jargon/b/black.jpg",
+    locationIds: "Shordich",
     instruments: ["Drums", "Vocals", "Piano"],
     genres: ["Screams"],
     social: {
       soundcloudProfile: "tiesto",
       soundcloudTrack: "",
-      soundcloud: "261251271",
+      soundcloud: "139581250",
       twitter: "rices",
       instagram: "licence",
       youtube: "UCFHtCB_FWXQ8GpjgfYcD8-g"
@@ -55,7 +55,7 @@ module.exports = [
       date: "18/7/2018 at: 19:52"
   }]
   },
-  {
+ 3: {
     id: 3,
     name: "Michael",
     surname: "Thomas",
@@ -77,7 +77,7 @@ module.exports = [
     inbox:[],
     sent:[]
   },
-  {
+ 4: {
     id: 4,
     name: "Rafal",
     surname: "Porzucek",
@@ -99,7 +99,7 @@ module.exports = [
     inbox:[],
     sent:[]
   },
-  {
+ 5: {
     id: 5,
     name: "Matt",
     surname: "Garrity",
@@ -121,7 +121,7 @@ module.exports = [
     inbox:[],
     sent:[]
   },
-  {
+ 6: {
     id: 6,
     name: "Whitney",
     surname: "Houston",
@@ -142,7 +142,7 @@ module.exports = [
     inbox:[],
     sent:[]
   },
-  {
+ 7: {
     id: 7,
     name: "James",
     surname: "Blunt",
@@ -164,7 +164,7 @@ module.exports = [
     inbox:[],
     sent:[]
   },
-  {
+ 8: {
     id: 8,
     name: "Joe",
     surname: "Spunge",
@@ -186,7 +186,7 @@ module.exports = [
     inbox:[],
     sent:[]
   },
-  {
+ 9: {
     id: 9,
     name: "Harry",
     surname: "Styles",
@@ -208,7 +208,7 @@ module.exports = [
     inbox:[],
     sent:[]
   },
-  {
+ 10: {
     id: 10,
     name: "Marc ",
     surname: "Anthony",
@@ -230,4 +230,4 @@ module.exports = [
     inbox:[],
     sent:[]
   }
-];
+};
