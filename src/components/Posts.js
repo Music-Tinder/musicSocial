@@ -10,7 +10,7 @@ class Posts extends React.Component {
     this.update = this.update.bind(this);
   }
   componentDidMount() {
-    this.props.getMusicians();
+    this.props.getMusicians("all");
   }
 
   update(data) {
@@ -33,9 +33,13 @@ class Posts extends React.Component {
           update={this.update}
         />
 
-        {Object.keys(this.state.wallPosts).map((key,index) => {
+        
+        {Object.keys(this.state.wallPosts).reverse().map((key,index) => {
           return <Post key={index} post={this.state.wallPosts[key]} index={index} />;
         })}
+
+
+
       </div>
     );
   }

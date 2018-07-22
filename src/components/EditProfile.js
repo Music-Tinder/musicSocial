@@ -23,7 +23,7 @@ class EditProfile extends React.Component {
             <div key={index}>
               <p> Favourite Profile #{index + 1} </p>
               <User
-                user={this.props.profiles[id - 1]}
+                user={this.props.profiles[id]}
                 selected={this.props.profile}
                 isLogged={this.props.isLogged}
                 selectMusician={this.props.selectMusician}

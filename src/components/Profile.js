@@ -4,29 +4,19 @@ import EditProfile from "../components/EditProfile";
 class Profile extends React.Component {
   constructor() {
     super();
-    this.state = { selectedPofile: {}, isSelected: false };
-    this.changeHandler = this.changeHandler.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
   }
   componentDidMount() {
-    this.props.getMusicians();
+    this.props.getMusicians("all");
   }
 
-  changeHandler(event) {
-    if (event.target.value > -1) {
-      let tempObj = this.props.musicians[event.target.value - 1];
-      this.props.selectMusician(tempObj);
-      this.props.logIn(true);
-      this.setState({ isSelected: true });
-    }
-  }
+  
 
   clickHandler(event) {
     event.preventDefault();
-    let tempObj = this.props.musicians[event.target.id - 1];
+    let tempObj = this.props.musicians[event.target.id];
     this.props.selectMusician(tempObj);
     this.props.logIn(true);
-    this.setState({ isSelected: true });
   }
 
   render() {
@@ -35,15 +25,15 @@ class Profile extends React.Component {
         <div className="dropdown">
           <button className="dropbtn">Sign In As...</button>
           <div className="dropdown-content">
-            {this.props.musicians.map(musician => {
+            {Object.keys(this.props.musicians).map(musician => {
               return (
                 <a
                   href="#"
                   onClick={this.clickHandler}
-                  id={musician.id}
-                  key={musician.id}
+                  id={this.props.musicians[musician].id}
+                  key={this.props.musicians[musician].id}
                 >
-                  {musician.name}
+                  {this.props.musicians[musician].name}
                 </a>
               );
             })}

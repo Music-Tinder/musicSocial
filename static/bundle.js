@@ -26781,7 +26781,7 @@ var EditProfile = function (_React$Component) {
               " "
             ),
             _react2.default.createElement(_User2.default, {
-              user: _this2.props.profiles[id - 1],
+              user: _this2.props.profiles[id],
               selected: _this2.props.profile,
               isLogged: _this2.props.isLogged,
               selectMusician: _this2.props.selectMusician
@@ -27263,7 +27263,7 @@ var Messages = function (_React$Component) {
   _createClass(Messages, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.getMusicians();
+      this.props.getMusicians("all");
     }
   }, {
     key: "render",
@@ -27360,6 +27360,8 @@ var NewPost = function (_React$Component) {
   }, {
     key: "submitHandler",
     value: function submitHandler(event) {
+      var _this2 = this;
+
       event.preventDefault();
       var date = new Date();
       var fullDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + " at: " + date.getHours() + ":" + date.getMinutes();
@@ -27381,7 +27383,7 @@ var NewPost = function (_React$Component) {
       }).then(function (response) {
         return response.json();
       }).then(function (data) {
-        return self.props.update(data.posts);
+        return _this2.props.update(data);
       });
 
       this.setState({ subject: "", message: "" });
@@ -27663,7 +27665,7 @@ var Posts = function (_React$Component) {
   _createClass(Posts, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.getMusicians();
+      this.props.getMusicians("all");
     }
   }, {
     key: "update",
@@ -27694,7 +27696,7 @@ var Posts = function (_React$Component) {
           isLogged: this.props.isLogged,
           update: this.update
         }),
-        Object.keys(this.state.wallPosts).map(function (key, index) {
+        Object.keys(this.state.wallPosts).reverse().map(function (key, index) {
           return _react2.default.createElement(_Post2.default, { key: index, post: _this3.state.wallPosts[key], index: index });
         })
       );
@@ -27748,8 +27750,6 @@ var Profile = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this));
 
-    _this.state = { selectedPofile: {}, isSelected: false };
-    _this.changeHandler = _this.changeHandler.bind(_this);
     _this.clickHandler = _this.clickHandler.bind(_this);
     return _this;
   }
@@ -27757,26 +27757,15 @@ var Profile = function (_React$Component) {
   _createClass(Profile, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.getMusicians();
-    }
-  }, {
-    key: "changeHandler",
-    value: function changeHandler(event) {
-      if (event.target.value > -1) {
-        var tempObj = this.props.musicians[event.target.value - 1];
-        this.props.selectMusician(tempObj);
-        this.props.logIn(true);
-        this.setState({ isSelected: true });
-      }
+      this.props.getMusicians("all");
     }
   }, {
     key: "clickHandler",
     value: function clickHandler(event) {
       event.preventDefault();
-      var tempObj = this.props.musicians[event.target.id - 1];
+      var tempObj = this.props.musicians[event.target.id];
       this.props.selectMusician(tempObj);
       this.props.logIn(true);
-      this.setState({ isSelected: true });
     }
   }, {
     key: "render",
@@ -27797,16 +27786,16 @@ var Profile = function (_React$Component) {
           _react2.default.createElement(
             "div",
             { className: "dropdown-content" },
-            this.props.musicians.map(function (musician) {
+            Object.keys(this.props.musicians).map(function (musician) {
               return _react2.default.createElement(
                 "a",
                 {
                   href: "#",
                   onClick: _this2.clickHandler,
-                  id: musician.id,
-                  key: musician.id
+                  id: _this2.props.musicians[musician].id,
+                  key: _this2.props.musicians[musician].id
                 },
-                musician.name
+                _this2.props.musicians[musician].name
               );
             })
           )
@@ -28267,14 +28256,9 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  // dispatch(fetchUsers());
-
   return {
-    getMusicians: function getMusicians() {
-      return dispatch((0, _actions.fetchUsers)());
-    },
-    selectMusician: function selectMusician(user) {
-      return dispatch((0, _actions.selectUser)(user));
+    getMusicians: function getMusicians(instrument) {
+      return dispatch((0, _actions.fetchUsers)(instrument));
     }
   };
 };
@@ -28316,7 +28300,6 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-
   return {
     getMusicians: function getMusicians() {
       return dispatch((0, _actions.fetchUsers)());
@@ -28362,8 +28345,8 @@ var mapStateToProps = function mapStateToProps(state) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    getMusicians: function getMusicians() {
-      return dispatch((0, _actions.fetchUsers)());
+    getMusicians: function getMusicians(instrument) {
+      return dispatch((0, _actions.fetchUsers)(instrument));
     },
     selectMusician: function selectMusician(user) {
       return dispatch((0, _actions.selectUser)(user));
@@ -28415,9 +28398,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     getMusicians: function getMusicians(instrument) {
       return dispatch((0, _actions.fetchUsers)(instrument));
-    },
-    selectMusician: function selectMusician(user) {
-      return dispatch((0, _actions.selectUser)(user));
     }
   };
 };

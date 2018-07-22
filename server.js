@@ -30,12 +30,9 @@ app.get("/api/users/:instrument", function(req, res) {
       
     res.json(filterred);
     }
-    
 
   });
   
-
-
 app.get("/api/wallPosts", function(req, res) {
   res.json(data.wallPosts);
 });
@@ -49,7 +46,7 @@ app.post("/api/addWallPost", function(req, res) {
   newPost= {[id]:req.body}
   wallPostsId++
   data.wallPosts=Object.assign({},data.wallPosts,newPost)
-  res.json(newPost);
+  res.json(data.wallPosts);
 });
 
 

@@ -42,7 +42,7 @@ class NewPost extends React.Component {
       .then(function(response) {
         return response.json();
       })
-      .then(data => self.props.update(data.posts))
+      .then(data => this.props.update(data) )
 
     this.setState({ subject: "", message: "" });
   }
