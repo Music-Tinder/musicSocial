@@ -1,1 +1,1 @@
-A socail website to bring musicians together.
+A social website to bring musicians together.
